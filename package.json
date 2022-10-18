@@ -1,11 +1,5 @@
 {
   "private": true,
   "name": "@exopen/types",
-  "exports": {
-    ".": {
-      "types": {
-        "default": "./index.d.ts"
-      }
-    }
-  }
+  "main": "index.ts"
 }
