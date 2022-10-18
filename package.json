@@ -3,6 +3,7 @@
   "name": "@exopen/types",
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "type": "module",
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
