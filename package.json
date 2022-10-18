@@ -1,5 +1,6 @@
 {
   "private": true,
+  "name": "@exopen/types",
   "exports": {
     ".": {
       "types": {
