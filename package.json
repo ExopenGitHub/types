@@ -4,8 +4,7 @@
   "exports": {
     ".": {
       "types": {
-        "import": "./index.d.ts",
-        "require": "./index.d.ts"
+        "default": "./index.d.ts"
       }
     }
   }
