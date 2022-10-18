@@ -1,8 +1,8 @@
 {
   "private": true,
   "name": "@exopen/types",
-  "main": "dist/index.ts",
-  "types": "dist/index.d.ts",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
