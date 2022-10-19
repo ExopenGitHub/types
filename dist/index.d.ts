@@ -63,3 +63,4 @@ export declare type Task = {
     parentId: string;
     parentStatus: TaskStatus;
 });
+export declare type DimensionType = "costcenter" | "project" | "customer" | "product" | "supplier";
