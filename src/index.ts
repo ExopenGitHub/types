@@ -62,4 +62,4 @@ export type Task = {
   | { parentId: string; parentStatus: TaskStatus }
 );
 
-export type DimensionType = "costcenter" | "project" | "customer";
+export type DimensionType = "costcenter" | "project" | "customer" | "product" | "supplier";
