@@ -1,0 +1,37 @@
+name: Continuous Integration
+on:
+  push:
+    branches:
+      - main
+    paths-ignore: 
+      - 'dist/**'
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v3
+
+    - uses: pnpm/action-setup@v2.2.2
+      with:
+        version: 7
+
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        token: ${{ secrets.GITHUB_TOKEN }}
+        cache: pnpm
+
+    - name: Install
+      run: pnpm install
+
+    - name: Build
+      run: pnpm build
+
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Apply php-cs-fixer changes
