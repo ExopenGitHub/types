@@ -65,4 +65,3 @@ export declare type Task = {
 });
 export declare type DimensionType = "costcenter" | "project" | "customer" | "product" | "supplier";
 export * from "./endpoints/index.js";
-export declare type Foo = 123;
