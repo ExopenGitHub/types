@@ -79,7 +79,7 @@ export interface HierarchyNode {
 }
 
 export interface DimensionHierarchy {
-  objects: DimensionObject[];
+  objects: Record<string, DimensionObject>;
   nodes: Record<string, HierarchyNode>;
   root: string[];
   unMapped: string[];
