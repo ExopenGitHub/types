@@ -79,10 +79,10 @@ export interface HierarchyNode {
 }
 
 export interface DimensionHierarchy {
-  unMapped: DimensionObject[];
   objects: DimensionObject[];
   nodes: Record<string, HierarchyNode>;
   root: string[];
+  unMapped: string[];
 }
 
 export * from "./endpoints/index.js"
