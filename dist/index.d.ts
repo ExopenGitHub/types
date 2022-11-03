@@ -64,4 +64,22 @@ export declare type Task = {
     parentStatus: TaskStatus;
 });
 export declare type DimensionType = "costcenter" | "project" | "customer" | "product" | "supplier";
+export interface DimensionObject {
+    id: string;
+    code: string;
+    name: string;
+}
+export interface HierarchyNode {
+    id: string;
+    name: string;
+    children: string[];
+    objects: string[];
+    parentId: string | null;
+}
+export interface DimensionHierarchy {
+    unMapped: DimensionObject[];
+    objects: DimensionObject[];
+    nodes: Record<string, HierarchyNode>;
+    root: string[];
+}
 export * from "./endpoints/index.js";
