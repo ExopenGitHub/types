@@ -27,10 +27,46 @@ export type Plan = {
   thousands: boolean;
 };
 
-export type OrganizationalUnit = {
+export type DimType =
+  | "customer"
+  | "supplier"
+  | "project"
+  | "product"
+  | "costcenter"
+  | "costbearer";
+
+
+export type Dim = {
+  id: string;
+  name: string;
+  planId: string;
+  dimType: DimType;
+};
+
+export interface AccountingObjectBase {
   id: string;
   name: string;
   code: string;
+}
+
+export interface AccountingObjectSync extends AccountingObjectBase {
+  active: boolean;
+  planId: string;
+  createdAt: string;
+  syncStatus:
+    | "new-in-plan"
+    | "changed-in-plan"
+    | "sync-updated"
+    | "sync-new"
+    | "sync-ok"
+    | "sync-only-in-plan";
+}
+
+export interface AccountingObject extends AccountingObjectSync {
+  dim: Dim;
+}
+
+export interface OrganizationalUnit extends AccountingObjectSync {
 };
 
 export enum TaskStatus {
