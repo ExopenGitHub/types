@@ -35,6 +35,11 @@ export declare type Dim = {
     planId: string;
     dimType: DimType;
 };
+export declare type Account = {
+    id: string;
+    accountNumber: string;
+    accountName: string;
+};
 export interface AccountingObjectBase {
     id: string;
     name: string;
@@ -50,6 +55,54 @@ export interface AccountingObject extends AccountingObjectSync {
     dim: Dim;
 }
 export interface OrganizationalUnit extends AccountingObjectSync {
+}
+export interface GeneralObjectAccountRecipeRow {
+    id: number;
+    amount: number;
+    account: Account;
+    offsetDays: number | null;
+    amountType: "fixed" | "percent";
+    accountRecipeId: number;
+    parentId: number | null;
+}
+export declare type AccountRecipeSubItems = {
+    id: number;
+    amount: number;
+    account: Account;
+    offsetDays: number | null;
+    amountType: "fixed" | "percent";
+};
+export declare type AccountRecipeRow = {
+    id: number;
+    amount: number;
+    account: Account;
+    offsetDays: number | null;
+    subItems: AccountRecipeSubItems[];
+    amountType: "fixed" | "percent";
+};
+export declare type AccountRecipeModuleTag = "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+export declare type AccountRecipe = {
+    id: string;
+    name: string;
+    description: string;
+    moduleTag: AccountRecipeModuleTag;
+    versionId: string;
+    accountRecipeRows: AccountRecipeRow[];
+    createdAt: string;
+};
+export declare type GeneralObjectAccountRecipe = Omit<AccountRecipe, "accountRecipeRows"> & {
+    accountRecipeRows: GeneralObjectAccountRecipeRow[];
+};
+export declare type GeneralObjectType = "sale" | "employee" | "activity" | "benefit";
+export interface GeneralObject extends AccountingObjectSync {
+    amount: number;
+    refType: GeneralObjectType;
+    accountRecipes: GeneralObjectAccountRecipe[];
+}
+export interface BenefitObject extends GeneralObject {
+    amountPercent: number;
+    taxType: "Yes" | "No";
+    socType: "Social" | "Special" | "No";
 }
 export declare enum TaskStatus {
     InProgress = "in_progress",
