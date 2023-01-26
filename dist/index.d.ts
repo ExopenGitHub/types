@@ -28,11 +28,29 @@ export declare type Plan = {
     generateIbBasedOnOb: boolean;
     thousands: boolean;
 };
-export declare type OrganizationalUnit = {
+export declare type DimType = "customer" | "supplier" | "project" | "product" | "costcenter" | "costbearer";
+export declare type Dim = {
+    id: string;
+    name: string;
+    planId: string;
+    dimType: DimType;
+};
+export interface AccountingObjectBase {
     id: string;
     name: string;
     code: string;
-};
+}
+export interface AccountingObjectSync extends AccountingObjectBase {
+    active: boolean;
+    planId: string;
+    createdAt: string;
+    syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan";
+}
+export interface AccountingObject extends AccountingObjectSync {
+    dim: Dim;
+}
+export interface OrganizationalUnit extends AccountingObjectSync {
+}
 export declare enum TaskStatus {
     InProgress = "in_progress",
     ReadyForReview = "ready_for_review",
