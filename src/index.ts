@@ -25,10 +25,11 @@ export type Plan = {
   companyId: string;
   generateIbBasedOnOb: boolean;
   thousands: boolean;
+  owner:string
 };
 
 export type OrganizationalUnit = {
-  id: string;
+  id: number;
   name: string;
   code: string;
 };
