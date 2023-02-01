@@ -27,6 +27,7 @@ export declare type Plan = {
     companyId: string;
     generateIbBasedOnOb: boolean;
     thousands: boolean;
+    owner: string;
 };
 export declare type DimType = "customer" | "supplier" | "project" | "product" | "costcenter" | "costbearer";
 export declare type Dim = {
