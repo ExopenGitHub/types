@@ -28,11 +28,120 @@ export type Plan = {
   owner:string
 };
 
-export type OrganizationalUnit = {
-  id: number;
+export type DimType =
+  | "customer"
+  | "supplier"
+  | "project"
+  | "product"
+  | "costcenter"
+  | "costbearer";
+
+
+export type Dim = {
+  id: string;
+  name: string;
+  planId: string;
+  dimType: DimType;
+};
+export type Account = {
+  id: string;
+  accountNumber: string;
+  accountName: string;
+};
+
+export interface AccountingObjectBase {
+  id: string;
   name: string;
   code: string;
+}
+
+export interface AccountingObjectSync extends AccountingObjectBase {
+  active: boolean;
+  planId: string;
+  createdAt: string;
+  syncStatus:
+    | "new-in-plan"
+    | "changed-in-plan"
+    | "sync-updated"
+    | "sync-new"
+    | "sync-ok"
+    | "sync-only-in-plan";
+}
+
+export interface AccountingObject extends AccountingObjectSync {
+  dim: Dim;
+}
+
+export interface OrganizationalUnit extends AccountingObjectSync {
 };
+
+export interface GeneralObjectAccountRecipeRow {
+  id: number;
+  amount: number;
+  account: Account;
+  offsetDays: number | null;
+  amountType: "fixed" | "percent";
+  accountRecipeId: number;
+  parentId: number | null;
+}
+
+export type AccountRecipeSubItems = {
+  id: number;
+  amount: number;
+  account: Account;
+  offsetDays: number | null;
+  amountType: "fixed" | "percent";
+};
+
+export type AccountRecipeRow = {
+  id: number;
+  amount: number;
+  account: Account;
+  offsetDays: number | null;
+  subItems: AccountRecipeSubItems[];
+  amountType: "fixed" | "percent";
+};
+
+export type AccountRecipeModuleTag =
+  | "common"
+  | "sale"
+  | "account"
+  | "asset"
+  | "employee"
+  | "activity_lts"
+  | "employee_pp";
+
+export type AccountRecipe = {
+  id: string;
+  name: string;
+  description: string;
+  moduleTag: AccountRecipeModuleTag;
+  versionId: string;
+  accountRecipeRows: AccountRecipeRow[];
+  createdAt: string;
+};
+
+export type GeneralObjectAccountRecipe = Omit<
+  AccountRecipe,
+  "accountRecipeRows"
+> & {
+  accountRecipeRows: GeneralObjectAccountRecipeRow[];
+};
+
+export type GeneralObjectType = "sale" | "employee" | "activity" | "benefit";
+
+export interface GeneralObject extends AccountingObjectSync {
+  amount: number;
+  refType: GeneralObjectType;
+  accountRecipes: GeneralObjectAccountRecipe[];
+}
+
+export interface BenefitObject extends GeneralObject {
+  amountPercent: number;
+  taxType: "Yes" | "No";
+  socType: "Social" | "Special" | "No";
+}
+
 
 export enum TaskStatus {
   InProgress = "in_progress",
