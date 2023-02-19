@@ -2,6 +2,10 @@ lockfileVersion: 5.4
 
 specifiers:
   typescript: ^4.8.4
+  zod: ^3.20.6
+
+dependencies:
+  zod: 3.20.6
 
 devDependencies:
   typescript: 4.8.4
@@ -13,3 +17,7 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
+
+  /zod/3.20.6:
+    resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
+    dev: false
