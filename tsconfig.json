@@ -6,6 +6,8 @@
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "outDir": "dist",
-    "target": "ESNext"
+    "target": "ESNext",
+    "moduleResolution": "nodenext",
+    "noUnusedLocals": true
   }
 }

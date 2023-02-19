@@ -13,5 +13,9 @@
   },
   "devDependencies": {
     "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@exopen/types": "*",
+    "zod": "^3.20.6"
   }
 }
