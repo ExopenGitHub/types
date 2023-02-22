@@ -399,3 +399,185 @@ export declare const getAccountRecipesResponseSchema: z.ZodArray<z.ZodObject<{
     }[];
 }>, "many">;
 export declare type GetAccountRecipesResponse = z.infer<typeof getAccountRecipesResponseSchema>;
+export declare const createAccountRecipeBodySchema: z.ZodObject<{
+    name: z.ZodString;
+    description: z.ZodString;
+    moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+    rows: z.ZodArray<z.ZodObject<{
+        accountId: z.ZodString;
+        amount: z.ZodNumber;
+        offsetDays: z.ZodNumber;
+        amountType: z.ZodString;
+        subItems: z.ZodArray<z.ZodObject<{
+            accountId: z.ZodString;
+            amount: z.ZodNumber;
+            offsetDays: z.ZodNumber;
+            amountType: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            amount: number;
+            offsetDays: number;
+            amountType: string;
+            accountId: string;
+        }, {
+            amount: number;
+            offsetDays: number;
+            amountType: string;
+            accountId: string;
+        }>, "many">;
+    }, "strip", z.ZodTypeAny, {
+        amount: number;
+        offsetDays: number;
+        amountType: string;
+        subItems: {
+            amount: number;
+            offsetDays: number;
+            amountType: string;
+            accountId: string;
+        }[];
+        accountId: string;
+    }, {
+        amount: number;
+        offsetDays: number;
+        amountType: string;
+        subItems: {
+            amount: number;
+            offsetDays: number;
+            amountType: string;
+            accountId: string;
+        }[];
+        accountId: string;
+    }>, "many">;
+}, "strip", z.ZodTypeAny, {
+    name: string;
+    description: string;
+    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+    rows: {
+        amount: number;
+        offsetDays: number;
+        amountType: string;
+        subItems: {
+            amount: number;
+            offsetDays: number;
+            amountType: string;
+            accountId: string;
+        }[];
+        accountId: string;
+    }[];
+}, {
+    name: string;
+    description: string;
+    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+    rows: {
+        amount: number;
+        offsetDays: number;
+        amountType: string;
+        subItems: {
+            amount: number;
+            offsetDays: number;
+            amountType: string;
+            accountId: string;
+        }[];
+        accountId: string;
+    }[];
+}>;
+export declare type CreateAccountRecipeBody = z.infer<typeof createAccountRecipeBodySchema>;
+export declare const createAccountRecipeParamsSchema: z.ZodObject<{
+    planId: z.ZodString;
+    companyDomainId: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    planId: string;
+    companyDomainId: string;
+}, {
+    planId: string;
+    companyDomainId: string;
+}>;
+export declare type CreateAccountRecipeParams = z.infer<typeof createAccountRecipeParamsSchema>;
+declare const createAccountRecipeInput: z.ZodObject<{
+    planId: z.ZodString;
+    companyDomainId: z.ZodString;
+    name: z.ZodString;
+    description: z.ZodString;
+    moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+    rows: z.ZodArray<z.ZodObject<{
+        accountId: z.ZodString;
+        amount: z.ZodNumber;
+        offsetDays: z.ZodNumber;
+        amountType: z.ZodString;
+        subItems: z.ZodArray<z.ZodObject<{
+            accountId: z.ZodString;
+            amount: z.ZodNumber;
+            offsetDays: z.ZodNumber;
+            amountType: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            amount: number;
+            offsetDays: number;
+            amountType: string;
+            accountId: string;
+        }, {
+            amount: number;
+            offsetDays: number;
+            amountType: string;
+            accountId: string;
+        }>, "many">;
+    }, "strip", z.ZodTypeAny, {
+        amount: number;
+        offsetDays: number;
+        amountType: string;
+        subItems: {
+            amount: number;
+            offsetDays: number;
+            amountType: string;
+            accountId: string;
+        }[];
+        accountId: string;
+    }, {
+        amount: number;
+        offsetDays: number;
+        amountType: string;
+        subItems: {
+            amount: number;
+            offsetDays: number;
+            amountType: string;
+            accountId: string;
+        }[];
+        accountId: string;
+    }>, "many">;
+}, "strip", z.ZodTypeAny, {
+    name: string;
+    description: string;
+    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+    rows: {
+        amount: number;
+        offsetDays: number;
+        amountType: string;
+        subItems: {
+            amount: number;
+            offsetDays: number;
+            amountType: string;
+            accountId: string;
+        }[];
+        accountId: string;
+    }[];
+    planId: string;
+    companyDomainId: string;
+}, {
+    name: string;
+    description: string;
+    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+    rows: {
+        amount: number;
+        offsetDays: number;
+        amountType: string;
+        subItems: {
+            amount: number;
+            offsetDays: number;
+            amountType: string;
+            accountId: string;
+        }[];
+        accountId: string;
+    }[];
+    planId: string;
+    companyDomainId: string;
+}>;
+export declare type CreateAccountRecipeInput = z.infer<typeof createAccountRecipeInput>;
+export {};
