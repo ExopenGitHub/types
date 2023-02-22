@@ -70,3 +70,44 @@ export const getAccountRecipesResponseSchema = z.array(
 export type GetAccountRecipesResponse = z.infer<
   typeof getAccountRecipesResponseSchema
 >;
+
+export const createAccountRecipeBodySchema = z.object({
+  name: z.string(),
+  description: z.string(),
+  moduleTag: z.enum(ACCOUNT_RECIPE_MODULE_TAGS),
+  rows: z.array(
+    z.object({
+      accountId: z.string(),
+      amount: z.number(),
+      offsetDays: z.number(),
+      amountType: z.string(),
+      subItems: z.array(
+        z.object({
+          accountId: z.string(),
+          amount: z.number(),
+          offsetDays: z.number(),
+          amountType: z.string(),
+        })
+      ),
+    })
+  ),
+});
+
+export type CreateAccountRecipeBody = z.infer<
+  typeof createAccountRecipeBodySchema
+>;
+
+export const createAccountRecipeParamsSchema = z.object({
+  planId: z.string(),
+  companyDomainId: z.string(),
+});
+
+export type CreateAccountRecipeParams = z.infer<
+  typeof createAccountRecipeParamsSchema
+>;
+
+const createAccountRecipeInput = createAccountRecipeParamsSchema.merge(
+  createAccountRecipeBodySchema
+);
+
+export type CreateAccountRecipeInput = z.infer<typeof createAccountRecipeInput>;

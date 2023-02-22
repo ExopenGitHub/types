@@ -42,3 +42,25 @@ export const getAccountRecipesResponseSchema = z.array(z.object({
         parentId: z.union([z.string(), z.null()]),
     })),
 }));
+export const createAccountRecipeBodySchema = z.object({
+    name: z.string(),
+    description: z.string(),
+    moduleTag: z.enum(ACCOUNT_RECIPE_MODULE_TAGS),
+    rows: z.array(z.object({
+        accountId: z.string(),
+        amount: z.number(),
+        offsetDays: z.number(),
+        amountType: z.string(),
+        subItems: z.array(z.object({
+            accountId: z.string(),
+            amount: z.number(),
+            offsetDays: z.number(),
+            amountType: z.string(),
+        })),
+    })),
+});
+export const createAccountRecipeParamsSchema = z.object({
+    planId: z.string(),
+    companyDomainId: z.string(),
+});
+const createAccountRecipeInput = createAccountRecipeParamsSchema.merge(createAccountRecipeBodySchema);
