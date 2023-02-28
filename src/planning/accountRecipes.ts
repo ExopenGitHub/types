@@ -29,7 +29,8 @@ export type AccountRecipeModuleTag =
   | "asset"
   | "employee"
   | "activity_lts"
-  | "employee_pp";
+  | "employee_pp"
+  | "financing";
 
 export const accountRecipeSchema = z.object({
   id: z.string(),
