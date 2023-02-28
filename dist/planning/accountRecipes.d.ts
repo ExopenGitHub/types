@@ -148,7 +148,7 @@ export declare const accountRecipeRowSchema: z.ZodObject<{
     }[];
 }>;
 export declare type AccountRecipeRow = z.infer<typeof accountRecipeRowSchema>;
-export declare type AccountRecipeModuleTag = "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+export declare type AccountRecipeModuleTag = "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
 export declare const accountRecipeSchema: z.ZodObject<{
     id: z.ZodString;
     name: z.ZodString;
