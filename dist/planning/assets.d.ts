@@ -494,7 +494,7 @@ export declare const assetSchema: z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
         description: z.ZodNullable<z.ZodString>;
-        moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+        moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
         versionId: z.ZodString;
         accountRecipeRows: z.ZodArray<z.ZodObject<{
             id: z.ZodString;
@@ -606,7 +606,7 @@ export declare const assetSchema: z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         accountRecipeRows: {
             id: string;
@@ -636,7 +636,7 @@ export declare const assetSchema: z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         accountRecipeRows: {
             id: string;
@@ -669,7 +669,7 @@ export declare const assetSchema: z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
         description: z.ZodNullable<z.ZodString>;
-        moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+        moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
         versionId: z.ZodString;
         accountRecipeRows: z.ZodArray<z.ZodObject<{
             id: z.ZodString;
@@ -781,7 +781,7 @@ export declare const assetSchema: z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         accountRecipeRows: {
             id: string;
@@ -811,7 +811,7 @@ export declare const assetSchema: z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         accountRecipeRows: {
             id: string;
@@ -856,6 +856,8 @@ export declare const assetSchema: z.ZodObject<{
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
     };
+    scenarioId: string;
+    taskId: string;
     assetNumber: string;
     assetType: {
         id: string;
@@ -917,12 +919,11 @@ export declare const assetSchema: z.ZodObject<{
     depreciationPeriodMonth: number;
     depreciationFinalDate: string;
     depreciationMethod: "linear";
-    scenarioId: string;
     acquisitionAccountRecipe: {
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         accountRecipeRows: {
             id: string;
@@ -955,7 +956,7 @@ export declare const assetSchema: z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         accountRecipeRows: {
             id: string;
@@ -987,7 +988,6 @@ export declare const assetSchema: z.ZodObject<{
     writeDownValue: number | null;
     writeDownDate: string | null;
     discardedDate: string | null;
-    taskId: string;
 }, {
     id: string;
     description: string;
@@ -1000,6 +1000,8 @@ export declare const assetSchema: z.ZodObject<{
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
     };
+    scenarioId: string;
+    taskId: string;
     assetNumber: string;
     assetType: {
         id: string;
@@ -1061,12 +1063,11 @@ export declare const assetSchema: z.ZodObject<{
     depreciationPeriodMonth: number;
     depreciationFinalDate: string;
     depreciationMethod: "linear";
-    scenarioId: string;
     acquisitionAccountRecipe: {
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         accountRecipeRows: {
             id: string;
@@ -1099,7 +1100,7 @@ export declare const assetSchema: z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         accountRecipeRows: {
             id: string;
@@ -1131,7 +1132,6 @@ export declare const assetSchema: z.ZodObject<{
     writeDownValue: number | null;
     writeDownDate: string | null;
     discardedDate: string | null;
-    taskId: string;
 }>;
 export declare type Asset = z.infer<typeof assetSchema>;
 export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
@@ -1162,6 +1162,8 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
     }>;
+    scenarioId: z.ZodString;
+    taskId: z.ZodString;
     assetNumber: z.ZodString;
     assetType: z.ZodObject<{
         id: z.ZodString;
@@ -1397,7 +1399,6 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
     depreciationPeriodMonth: z.ZodNumber;
     depreciationFinalDate: z.ZodString;
     depreciationMethod: z.ZodLiteral<"linear">;
-    scenarioId: z.ZodString;
     saleValue: z.ZodNullable<z.ZodNumber>;
     saleDate: z.ZodNullable<z.ZodString>;
     revaluationValue: z.ZodNullable<z.ZodNumber>;
@@ -1405,13 +1406,12 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
     writeDownValue: z.ZodNullable<z.ZodNumber>;
     writeDownDate: z.ZodNullable<z.ZodString>;
     discardedDate: z.ZodNullable<z.ZodString>;
-    taskId: z.ZodString;
     acquisitionAccountRecipe: z.ZodObject<{
         id: z.ZodString;
         description: z.ZodNullable<z.ZodString>;
         createdAt: z.ZodDate;
         name: z.ZodString;
-        moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+        moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
         versionId: z.ZodString;
         jsonRows: z.ZodArray<z.ZodObject<{
             accountId: z.ZodString;
@@ -1448,7 +1448,7 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         createdAt: Date;
         jsonRows: {
@@ -1466,7 +1466,7 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         createdAt: Date;
         jsonRows: {
@@ -1486,7 +1486,7 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
         description: z.ZodNullable<z.ZodString>;
         createdAt: z.ZodDate;
         name: z.ZodString;
-        moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+        moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
         versionId: z.ZodString;
         jsonRows: z.ZodArray<z.ZodObject<{
             accountId: z.ZodString;
@@ -1523,7 +1523,7 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         createdAt: Date;
         jsonRows: {
@@ -1541,7 +1541,7 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         createdAt: Date;
         jsonRows: {
@@ -1568,6 +1568,8 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
     };
+    scenarioId: string;
+    taskId: string;
     assetNumber: string;
     assetType: {
         id: string;
@@ -1629,12 +1631,11 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
     depreciationPeriodMonth: number;
     depreciationFinalDate: string;
     depreciationMethod: "linear";
-    scenarioId: string;
     acquisitionAccountRecipe: {
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         createdAt: Date;
         jsonRows: {
@@ -1655,7 +1656,7 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         createdAt: Date;
         jsonRows: {
@@ -1675,7 +1676,6 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
     writeDownValue: number | null;
     writeDownDate: string | null;
     discardedDate: string | null;
-    taskId: string;
 }, {
     id: string;
     description: string;
@@ -1688,6 +1688,8 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
     };
+    scenarioId: string;
+    taskId: string;
     assetNumber: string;
     assetType: {
         id: string;
@@ -1749,12 +1751,11 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
     depreciationPeriodMonth: number;
     depreciationFinalDate: string;
     depreciationMethod: "linear";
-    scenarioId: string;
     acquisitionAccountRecipe: {
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         createdAt: Date;
         jsonRows: {
@@ -1775,7 +1776,7 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
         versionId: string;
         createdAt: Date;
         jsonRows: {
@@ -1795,7 +1796,6 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
     writeDownValue: number | null;
     writeDownDate: string | null;
     discardedDate: string | null;
-    taskId: string;
 }>, "many">;
 export declare type GetAssetsResponse = z.infer<typeof getAssetsResponseSchema>;
 export declare const getAssetTypesResponseSchema: z.ZodArray<z.ZodObject<{

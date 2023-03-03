@@ -10,3 +10,11 @@ export const moduleSchema = z.object({
 });
 
 export type Module = z.infer<typeof moduleSchema>;
+
+export const taskModuleSchema = z.object({
+  task: z.string(),
+  module: z.string(),
+  parentId: z.string().or(z.null()),
+});
+
+export type TaskModule = z.infer<typeof taskModuleSchema>;

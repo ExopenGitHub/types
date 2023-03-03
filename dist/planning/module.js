@@ -6,3 +6,8 @@ export const moduleSchema = z.object({
     description: z.string().optional(),
     refType: moduleSchemaRefTypeSchema,
 });
+export const taskModuleSchema = z.object({
+    task: z.string(),
+    module: z.string(),
+    parentId: z.string().or(z.null()),
+});

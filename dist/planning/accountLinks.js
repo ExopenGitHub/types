@@ -12,14 +12,6 @@ export const accountLinkSchema = z.object({
     ibOnly: z.boolean(),
     createdAt: z.date(),
 });
-export const getAccountLinksResponseSchema = z.array(z.object({
-    id: z.string(),
-    name: z.string(),
-    description: z.string(),
-    planId: z.string(),
-    createdAt: z.date(),
-    accounts: z.array(accountSchema),
-    accountRecipes: getAccountRecipesResponseSchema,
-    active: z.boolean(),
-    ibOnly: z.boolean(),
-}));
+export const getAccountLinksResponseSchema = z.array(accountLinkSchema
+    .omit({ accountRecipes: true })
+    .extend({ accountRecipes: getAccountRecipesResponseSchema }));

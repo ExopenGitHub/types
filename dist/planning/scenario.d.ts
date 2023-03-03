@@ -262,7 +262,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
                 description: z.ZodNullable<z.ZodString>;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 accountRecipeRows: z.ZodArray<z.ZodObject<{
                     id: z.ZodString;
@@ -374,7 +374,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -404,7 +404,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -446,7 +446,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -487,7 +487,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -614,7 +614,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -740,7 +740,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -1026,7 +1026,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
                 description: z.ZodNullable<z.ZodString>;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 accountRecipeRows: z.ZodArray<z.ZodObject<{
                     id: z.ZodString;
@@ -1138,7 +1138,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -1168,7 +1168,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -1210,7 +1210,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -1251,7 +1251,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -1378,7 +1378,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -1504,7 +1504,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -1790,7 +1790,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
                 description: z.ZodNullable<z.ZodString>;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 accountRecipeRows: z.ZodArray<z.ZodObject<{
                     id: z.ZodString;
@@ -1902,7 +1902,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -1932,7 +1932,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -1974,7 +1974,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -2015,7 +2015,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -2142,7 +2142,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -2268,7 +2268,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -2554,7 +2554,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
                 description: z.ZodNullable<z.ZodString>;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 accountRecipeRows: z.ZodArray<z.ZodObject<{
                     id: z.ZodString;
@@ -2666,7 +2666,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -2696,7 +2696,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -2738,7 +2738,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -2779,7 +2779,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -2906,7 +2906,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -3032,7 +3032,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -3318,7 +3318,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
                 description: z.ZodNullable<z.ZodString>;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 accountRecipeRows: z.ZodArray<z.ZodObject<{
                     id: z.ZodString;
@@ -3430,7 +3430,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -3460,7 +3460,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -3502,7 +3502,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -3543,7 +3543,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -3670,7 +3670,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -3796,7 +3796,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -4082,7 +4082,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
                 description: z.ZodNullable<z.ZodString>;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 accountRecipeRows: z.ZodArray<z.ZodObject<{
                     id: z.ZodString;
@@ -4194,7 +4194,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -4224,7 +4224,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -4266,7 +4266,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -4307,7 +4307,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -4434,7 +4434,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -4560,7 +4560,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -4846,7 +4846,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
                 description: z.ZodNullable<z.ZodString>;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 accountRecipeRows: z.ZodArray<z.ZodObject<{
                     id: z.ZodString;
@@ -4958,7 +4958,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -4988,7 +4988,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -5030,7 +5030,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -5071,7 +5071,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -5198,7 +5198,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -5324,7 +5324,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -8440,7 +8440,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -8566,7 +8566,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -8692,7 +8692,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -8818,7 +8818,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -8944,7 +8944,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -9070,7 +9070,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -9196,7 +9196,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -9936,7 +9936,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -10062,7 +10062,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -10188,7 +10188,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -10314,7 +10314,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -10440,7 +10440,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -10566,7 +10566,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -10692,7 +10692,7 @@ export declare const scenarioSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 accountRecipeRows: {
                     id: string;
@@ -11598,7 +11598,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -11635,7 +11635,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -11653,7 +11653,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -11682,7 +11682,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -11711,7 +11711,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -11826,7 +11826,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -11940,7 +11940,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -12216,7 +12216,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -12253,7 +12253,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -12271,7 +12271,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -12300,7 +12300,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -12329,7 +12329,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -12444,7 +12444,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -12558,7 +12558,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -12834,7 +12834,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -12871,7 +12871,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -12889,7 +12889,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -12918,7 +12918,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -12947,7 +12947,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -13062,7 +13062,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -13176,7 +13176,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -13452,7 +13452,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -13489,7 +13489,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -13507,7 +13507,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -13536,7 +13536,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -13565,7 +13565,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -13680,7 +13680,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -13794,7 +13794,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -14070,7 +14070,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -14107,7 +14107,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -14125,7 +14125,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -14154,7 +14154,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -14183,7 +14183,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -14298,7 +14298,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -14412,7 +14412,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -14688,7 +14688,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -14725,7 +14725,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -14743,7 +14743,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -14772,7 +14772,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -14801,7 +14801,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -14916,7 +14916,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -15030,7 +15030,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -15306,7 +15306,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -15343,7 +15343,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -15361,7 +15361,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -15390,7 +15390,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -15419,7 +15419,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -15534,7 +15534,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -15648,7 +15648,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -19355,7 +19355,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -19469,7 +19469,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -19583,7 +19583,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -19697,7 +19697,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -19811,7 +19811,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -19925,7 +19925,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -20039,7 +20039,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -20767,7 +20767,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -20881,7 +20881,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -20995,7 +20995,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -21109,7 +21109,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -21223,7 +21223,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -21337,7 +21337,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -21451,7 +21451,7 @@ export declare const getScenarioResponseSchema: z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -21740,7 +21740,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -21777,7 +21777,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -21795,7 +21795,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -21824,7 +21824,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -21853,7 +21853,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -21968,7 +21968,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -22082,7 +22082,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -22358,7 +22358,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -22395,7 +22395,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -22413,7 +22413,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -22442,7 +22442,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -22471,7 +22471,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -22586,7 +22586,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -22700,7 +22700,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -22976,7 +22976,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -23013,7 +23013,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -23031,7 +23031,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -23060,7 +23060,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -23089,7 +23089,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -23204,7 +23204,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -23318,7 +23318,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -23594,7 +23594,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -23631,7 +23631,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -23649,7 +23649,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -23678,7 +23678,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -23707,7 +23707,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -23822,7 +23822,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -23936,7 +23936,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -24212,7 +24212,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -24249,7 +24249,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -24267,7 +24267,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -24296,7 +24296,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -24325,7 +24325,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -24440,7 +24440,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -24554,7 +24554,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -24830,7 +24830,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -24867,7 +24867,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -24885,7 +24885,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -24914,7 +24914,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -24943,7 +24943,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -25058,7 +25058,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -25172,7 +25172,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -25448,7 +25448,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 description: z.ZodNullable<z.ZodString>;
                 createdAt: z.ZodDate;
                 name: z.ZodString;
-                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp"]>;
+                moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
                 versionId: z.ZodString;
                 jsonRows: z.ZodArray<z.ZodObject<{
                     accountId: z.ZodString;
@@ -25485,7 +25485,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -25503,7 +25503,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -25532,7 +25532,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -25561,7 +25561,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -25676,7 +25676,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -25790,7 +25790,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -29497,7 +29497,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -29611,7 +29611,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -29725,7 +29725,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -29839,7 +29839,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -29953,7 +29953,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -30067,7 +30067,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -30181,7 +30181,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -30909,7 +30909,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -31023,7 +31023,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -31137,7 +31137,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -31251,7 +31251,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -31365,7 +31365,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -31479,7 +31479,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -31593,7 +31593,7 @@ export declare const getAllScenariosResponseSchema: z.ZodArray<z.ZodObject<{
                 id: string;
                 name: string;
                 description: string | null;
-                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+                moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
                 versionId: string;
                 createdAt: Date;
                 jsonRows: {
@@ -31712,7 +31712,7 @@ export declare const isGeneralObjectTransactionGetScenarioResponse: (objectTrans
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
             versionId: string;
             createdAt: Date;
             jsonRows: {

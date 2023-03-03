@@ -22,15 +22,7 @@ export const accountRecipeRowSchema = commonAccountRecipeSchema.extend({
 
 export type AccountRecipeRow = z.infer<typeof accountRecipeRowSchema>;
 
-export type AccountRecipeModuleTag =
-  | "common"
-  | "sale"
-  | "account"
-  | "asset"
-  | "employee"
-  | "activity_lts"
-  | "employee_pp"
-  | "financing";
+export type AccountRecipeModuleTag = typeof ACCOUNT_RECIPE_MODULE_TAGS[number];
 
 export const accountRecipeSchema = z.object({
   id: z.string(),

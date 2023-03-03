@@ -59,11 +59,17 @@ export const generalObjectSchema = accountingObjectSyncSchema
 
 export type GeneralObject = z.infer<typeof generalObjectSchema>;
 
-export interface BenefitObject extends GeneralObject {
-  amountPercent: number;
-  taxType: "Yes" | "No";
-  socType: "Social" | "Special" | "No";
-}
+export const benefitObjectSchema = generalObjectSchema.extend({
+  amountPercent: z.number(),
+  taxType: z.literal("Yes").or(z.literal("No")),
+  socType: z.union([
+    z.literal("Social"),
+    z.literal("Special"),
+    z.literal("No"),
+  ]),
+});
+
+export type BenefitObject = z.infer<typeof benefitObjectSchema>;
 
 export const getGeneralObjectsResponseSchema = z.array(
   generalObjectSchema

@@ -35,6 +35,15 @@ export const generalObjectSchema = accountingObjectSyncSchema
     accountRecipes: z.array(accountRecipeSchema),
     syncStatus: accountingObjectSyncSchema.shape.syncStatus.nullable(),
 });
+export const benefitObjectSchema = generalObjectSchema.extend({
+    amountPercent: z.number(),
+    taxType: z.literal("Yes").or(z.literal("No")),
+    socType: z.union([
+        z.literal("Social"),
+        z.literal("Special"),
+        z.literal("No"),
+    ]),
+});
 export const getGeneralObjectsResponseSchema = z.array(generalObjectSchema
     .omit({ accountRecipes: true })
     .extend({ accountRecipes: getAccountRecipesResponseSchema }));

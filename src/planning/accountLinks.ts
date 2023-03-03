@@ -20,17 +20,9 @@ export const accountLinkSchema = z.object({
 export type AccountLink = z.infer<typeof accountLinkSchema>;
 
 export const getAccountLinksResponseSchema = z.array(
-  z.object({
-    id: z.string(),
-    name: z.string(),
-    description: z.string(),
-    planId: z.string(),
-    createdAt: z.date(),
-    accounts: z.array(accountSchema),
-    accountRecipes: getAccountRecipesResponseSchema,
-    active: z.boolean(),
-    ibOnly: z.boolean(),
-  })
+  accountLinkSchema
+    .omit({ accountRecipes: true })
+    .extend({ accountRecipes: getAccountRecipesResponseSchema })
 );
 
 export type GetAccountLinksResponse = z.infer<

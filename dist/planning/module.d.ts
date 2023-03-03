@@ -14,3 +14,17 @@ export declare const moduleSchema: z.ZodObject<{
     refType: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "sale_pro" | "sale_lts" | "account_pro" | "account_lts" | "employee_pro" | "employee_lts" | "ib";
 }>;
 export declare type Module = z.infer<typeof moduleSchema>;
+export declare const taskModuleSchema: z.ZodObject<{
+    task: z.ZodString;
+    module: z.ZodString;
+    parentId: z.ZodUnion<[z.ZodString, z.ZodNull]>;
+}, "strip", z.ZodTypeAny, {
+    module: string;
+    parentId: string | null;
+    task: string;
+}, {
+    module: string;
+    parentId: string | null;
+    task: string;
+}>;
+export declare type TaskModule = z.infer<typeof taskModuleSchema>;
