@@ -24,7 +24,7 @@ export const ACCOUNT_RECIPE_MODULE_TAGS = [
   "employee",
   "activity_lts",
   "employee_pp",
-  "financing",
+  "finance",
 ] as const;
 
 export const MODULE_REF_TYPE = [
@@ -42,6 +42,7 @@ export const MODULE_REF_TYPE = [
   "asset",
   "employee_pp",
   "common",
+  "finance",
 ] as const;
 
 export const PER_VALUE = [
