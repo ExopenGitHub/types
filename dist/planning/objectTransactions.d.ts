@@ -595,7 +595,7 @@ export declare const isGeneralObjectTransaction: (objectTransaction: ObjectTrans
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -883,7 +883,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
             id: z.ZodString;
             name: z.ZodString;
             description: z.ZodNullable<z.ZodString>;
-            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
             versionId: z.ZodString;
             accountRecipeRows: z.ZodArray<z.ZodObject<{
                 id: z.ZodString;
@@ -995,7 +995,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -1025,7 +1025,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -1067,7 +1067,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -1108,7 +1108,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -1234,7 +1234,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -1360,7 +1360,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -5070,7 +5070,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: z.ZodString;
             name: z.ZodString;
             description: z.ZodNullable<z.ZodString>;
-            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
             versionId: z.ZodString;
             accountRecipeRows: z.ZodArray<z.ZodObject<{
                 id: z.ZodString;
@@ -5182,7 +5182,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -5212,7 +5212,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -5254,7 +5254,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -5295,7 +5295,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -5422,7 +5422,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -5548,7 +5548,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -5834,7 +5834,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: z.ZodString;
             name: z.ZodString;
             description: z.ZodNullable<z.ZodString>;
-            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
             versionId: z.ZodString;
             accountRecipeRows: z.ZodArray<z.ZodObject<{
                 id: z.ZodString;
@@ -5946,7 +5946,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -5976,7 +5976,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -6018,7 +6018,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -6059,7 +6059,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -6186,7 +6186,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -6312,7 +6312,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -6598,7 +6598,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: z.ZodString;
             name: z.ZodString;
             description: z.ZodNullable<z.ZodString>;
-            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
             versionId: z.ZodString;
             accountRecipeRows: z.ZodArray<z.ZodObject<{
                 id: z.ZodString;
@@ -6710,7 +6710,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -6740,7 +6740,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -6782,7 +6782,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -6823,7 +6823,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -6950,7 +6950,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -7076,7 +7076,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -7362,7 +7362,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: z.ZodString;
             name: z.ZodString;
             description: z.ZodNullable<z.ZodString>;
-            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
             versionId: z.ZodString;
             accountRecipeRows: z.ZodArray<z.ZodObject<{
                 id: z.ZodString;
@@ -7474,7 +7474,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -7504,7 +7504,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -7546,7 +7546,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -7587,7 +7587,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -7714,7 +7714,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -7840,7 +7840,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -8126,7 +8126,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: z.ZodString;
             name: z.ZodString;
             description: z.ZodNullable<z.ZodString>;
-            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
             versionId: z.ZodString;
             accountRecipeRows: z.ZodArray<z.ZodObject<{
                 id: z.ZodString;
@@ -8238,7 +8238,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -8268,7 +8268,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -8310,7 +8310,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -8351,7 +8351,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -8478,7 +8478,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -8604,7 +8604,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -8890,7 +8890,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: z.ZodString;
             name: z.ZodString;
             description: z.ZodNullable<z.ZodString>;
-            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
             versionId: z.ZodString;
             accountRecipeRows: z.ZodArray<z.ZodObject<{
                 id: z.ZodString;
@@ -9002,7 +9002,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -9032,7 +9032,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -9074,7 +9074,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -9115,7 +9115,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -9242,7 +9242,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -9368,7 +9368,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -9654,7 +9654,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: z.ZodString;
             name: z.ZodString;
             description: z.ZodNullable<z.ZodString>;
-            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+            moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
             versionId: z.ZodString;
             accountRecipeRows: z.ZodArray<z.ZodObject<{
                 id: z.ZodString;
@@ -9766,7 +9766,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -9796,7 +9796,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -9838,7 +9838,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -9879,7 +9879,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -10006,7 +10006,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;
@@ -10132,7 +10132,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             id: string;
             name: string;
             description: string | null;
-            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+            moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
             versionId: string;
             accountRecipeRows: {
                 id: string;

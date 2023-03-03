@@ -154,7 +154,7 @@ export declare const accountRecipeSchema: z.ZodObject<{
     id: z.ZodString;
     name: z.ZodString;
     description: z.ZodNullable<z.ZodString>;
-    moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+    moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
     versionId: z.ZodString;
     accountRecipeRows: z.ZodArray<z.ZodObject<{
         id: z.ZodString;
@@ -266,7 +266,7 @@ export declare const accountRecipeSchema: z.ZodObject<{
     id: string;
     name: string;
     description: string | null;
-    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
     versionId: string;
     accountRecipeRows: {
         id: string;
@@ -296,7 +296,7 @@ export declare const accountRecipeSchema: z.ZodObject<{
     id: string;
     name: string;
     description: string | null;
-    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
     versionId: string;
     accountRecipeRows: {
         id: string;
@@ -329,7 +329,7 @@ export declare const getAccountRecipesResponseSchema: z.ZodArray<z.ZodObject<{
     description: z.ZodNullable<z.ZodString>;
     createdAt: z.ZodDate;
     name: z.ZodString;
-    moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+    moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
     versionId: z.ZodString;
     jsonRows: z.ZodArray<z.ZodObject<{
         accountId: z.ZodString;
@@ -366,7 +366,7 @@ export declare const getAccountRecipesResponseSchema: z.ZodArray<z.ZodObject<{
     id: string;
     name: string;
     description: string | null;
-    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
     versionId: string;
     createdAt: Date;
     jsonRows: {
@@ -384,7 +384,7 @@ export declare const getAccountRecipesResponseSchema: z.ZodArray<z.ZodObject<{
     id: string;
     name: string;
     description: string | null;
-    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
     versionId: string;
     createdAt: Date;
     jsonRows: {
@@ -403,7 +403,7 @@ export declare type GetAccountRecipesResponse = z.infer<typeof getAccountRecipes
 export declare const createAccountRecipeBodySchema: z.ZodObject<{
     name: z.ZodString;
     description: z.ZodString;
-    moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+    moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
     rows: z.ZodArray<z.ZodObject<{
         accountId: z.ZodString;
         amount: z.ZodNumber;
@@ -451,7 +451,7 @@ export declare const createAccountRecipeBodySchema: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     name: string;
     description: string;
-    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
     rows: {
         amount: number;
         offsetDays: number;
@@ -467,7 +467,7 @@ export declare const createAccountRecipeBodySchema: z.ZodObject<{
 }, {
     name: string;
     description: string;
-    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
     rows: {
         amount: number;
         offsetDays: number;
@@ -498,7 +498,7 @@ declare const createAccountRecipeInput: z.ZodObject<{
     companyDomainId: z.ZodString;
     name: z.ZodString;
     description: z.ZodString;
-    moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+    moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
     rows: z.ZodArray<z.ZodObject<{
         accountId: z.ZodString;
         amount: z.ZodNumber;
@@ -546,7 +546,7 @@ declare const createAccountRecipeInput: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     name: string;
     description: string;
-    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
     rows: {
         amount: number;
         offsetDays: number;
@@ -564,7 +564,7 @@ declare const createAccountRecipeInput: z.ZodObject<{
 }, {
     name: string;
     description: string;
-    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+    moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
     rows: {
         amount: number;
         offsetDays: number;

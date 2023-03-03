@@ -21,7 +21,7 @@ export declare const accountLinkSchema: z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
         description: z.ZodNullable<z.ZodString>;
-        moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+        moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
         versionId: z.ZodString;
         accountRecipeRows: z.ZodArray<z.ZodObject<{
             id: z.ZodString;
@@ -133,7 +133,7 @@ export declare const accountLinkSchema: z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
         versionId: string;
         accountRecipeRows: {
             id: string;
@@ -163,7 +163,7 @@ export declare const accountLinkSchema: z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
         versionId: string;
         accountRecipeRows: {
             id: string;
@@ -204,7 +204,7 @@ export declare const accountLinkSchema: z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
         versionId: string;
         accountRecipeRows: {
             id: string;
@@ -248,7 +248,7 @@ export declare const accountLinkSchema: z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
         versionId: string;
         accountRecipeRows: {
             id: string;
@@ -309,7 +309,7 @@ export declare const getAccountLinksResponseSchema: z.ZodArray<z.ZodObject<{
         description: z.ZodNullable<z.ZodString>;
         createdAt: z.ZodDate;
         name: z.ZodString;
-        moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "financing"]>;
+        moduleTag: z.ZodEnum<["common", "sale", "account", "asset", "employee", "activity_lts", "employee_pp", "finance"]>;
         versionId: z.ZodString;
         jsonRows: z.ZodArray<z.ZodObject<{
             accountId: z.ZodString;
@@ -346,7 +346,7 @@ export declare const getAccountLinksResponseSchema: z.ZodArray<z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
         versionId: string;
         createdAt: Date;
         jsonRows: {
@@ -364,7 +364,7 @@ export declare const getAccountLinksResponseSchema: z.ZodArray<z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
         versionId: string;
         createdAt: Date;
         jsonRows: {
@@ -390,7 +390,7 @@ export declare const getAccountLinksResponseSchema: z.ZodArray<z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
         versionId: string;
         createdAt: Date;
         jsonRows: {
@@ -422,7 +422,7 @@ export declare const getAccountLinksResponseSchema: z.ZodArray<z.ZodObject<{
         id: string;
         name: string;
         description: string | null;
-        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "financing";
+        moduleTag: "common" | "sale" | "account" | "asset" | "employee" | "activity_lts" | "employee_pp" | "finance";
         versionId: string;
         createdAt: Date;
         jsonRows: {
