@@ -372,7 +372,7 @@ export declare const employeePerPersonSchema: z.ZodObject<{
         vacationDays: number;
         groupInsurance: number | null;
     }>;
-    monthlySalary: z.ZodNumber;
+    monthlySalary: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     hourlyPay: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     salaryRevisionPercent: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     active: z.ZodBoolean;
@@ -871,7 +871,7 @@ export declare const employeePerPersonSchema: z.ZodObject<{
         vacationDays: number;
         groupInsurance: number | null;
     };
-    monthlySalary: number;
+    monthlySalary: number | null;
     hourlyPay: number | null;
     salaryRevisionPercent: number | null;
     scenarioId: string | null;
@@ -1007,7 +1007,7 @@ export declare const employeePerPersonSchema: z.ZodObject<{
         vacationDays: number;
         groupInsurance: number | null;
     };
-    monthlySalary: number;
+    monthlySalary: number | null;
     hourlyPay: number | null;
     salaryRevisionPercent: number | null;
     scenarioId: string | null;
@@ -1271,7 +1271,7 @@ export declare const getEmployeePerPersonResponseSchema: z.ZodArray<z.ZodObject<
         vacationDays: number;
         groupInsurance: number | null;
     }>;
-    monthlySalary: z.ZodNumber;
+    monthlySalary: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     hourlyPay: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     salaryRevisionPercent: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     scenarioId: z.ZodUnion<[z.ZodString, z.ZodNull]>;
@@ -1591,7 +1591,7 @@ export declare const getEmployeePerPersonResponseSchema: z.ZodArray<z.ZodObject<
         vacationDays: number;
         groupInsurance: number | null;
     };
-    monthlySalary: number;
+    monthlySalary: number | null;
     hourlyPay: number | null;
     salaryRevisionPercent: number | null;
     scenarioId: string | null;
@@ -1715,7 +1715,7 @@ export declare const getEmployeePerPersonResponseSchema: z.ZodArray<z.ZodObject<
         vacationDays: number;
         groupInsurance: number | null;
     };
-    monthlySalary: number;
+    monthlySalary: number | null;
     hourlyPay: number | null;
     salaryRevisionPercent: number | null;
     scenarioId: string | null;

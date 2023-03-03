@@ -15,10 +15,10 @@ export const planSchema = z.object({
   comparisonPlans: z.array(
     z.object({ planId: z.string(), taskId: z.string() })
   ),
-  createTemplatesForRegisters: z.boolean(),
-  createTasksForCostCenters: z.boolean(),
-  createScenariosFromActuals: z.boolean(),
-  createScenariosPerTask: z.boolean(),
+  createTemplatesForRegisters: z.boolean().or(z.null()),
+  createTasksForCostCenters: z.boolean().or(z.null()),
+  createScenariosFromActuals: z.boolean().or(z.null()),
+  createScenariosPerTask: z.boolean().or(z.null()),
   periodLength: z.number(),
   companyId: z.string(),
   thousands: z.boolean(),

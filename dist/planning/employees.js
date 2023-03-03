@@ -59,7 +59,7 @@ export const employeePerPersonSchema = z.object({
     salaryForm: z.literal("Hour").or(z.literal("Month")),
     personnelTypeId: personnelTypeSchema,
     personnelAgreementId: personnelAgreementSchema,
-    monthlySalary: z.number(),
+    monthlySalary: z.number().or(z.null()),
     hourlyPay: z.number().or(z.null()),
     salaryRevisionPercent: z.number().or(z.null()),
     active: z.boolean(),
