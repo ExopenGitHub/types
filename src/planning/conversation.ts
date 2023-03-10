@@ -2,6 +2,8 @@ import { z } from "zod";
 
 export type ConversationReferenceType = "objectTransaction" | "task";
 
+export const MAX_LENGTH_MESSAGE = 2500;
+
 const conversationMessageSchema = z.object({
   message: z.string(),
   conversationId: z.number(),
@@ -42,4 +44,30 @@ export const getConversationsResponseSchema = z.array(conversationSchema);
 
 export type GetConversationsResponse = z.infer<
   typeof getConversationsResponseSchema
+>;
+
+const conversationMessageLastReadSchema = z.object({
+  user: z.string(),
+  conversationId: z.number(),
+  messageId: z.number(),
+  taskId: z.bigint(),
+  planId: z.bigint(),
+  companyDomainId: z.string(),
+  updatedAt: z.date(),
+});
+
+export const getReadConversationsResponseSchema = z.array(
+  conversationMessageLastReadSchema.extend({
+    conversation: z.object({
+      conversationMessages: z.tuple([
+        z.object({
+          id: z.number(),
+        }),
+      ]),
+    }),
+  })
+);
+
+export type GetReadConversationsResponse = z.infer<
+  typeof getReadConversationsResponseSchema
 >;

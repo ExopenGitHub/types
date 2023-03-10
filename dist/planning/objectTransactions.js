@@ -46,6 +46,7 @@ export const baseObjectTransactionSchema = z.object({
     productDim: objectTransactionDim,
     costBearerDim: objectTransactionDim,
     per: perValueSchema,
+    conversationId: z.number().or(z.null())
 });
 export const isAccountObjectTransaction = (objectTransaction) => {
     return (objectTransaction.refType === "account" ||

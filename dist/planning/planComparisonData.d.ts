@@ -329,6 +329,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -680,6 +681,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -806,6 +808,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -1093,6 +1096,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -1444,6 +1448,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -1570,6 +1575,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -1857,6 +1863,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -2208,6 +2215,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -2334,6 +2342,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -2621,6 +2630,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -2972,6 +2982,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -3098,6 +3109,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -3385,6 +3397,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -3736,6 +3749,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -3862,6 +3876,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -4149,6 +4164,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -4500,6 +4516,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -4626,6 +4643,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -4913,6 +4931,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -5264,6 +5283,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -5390,6 +5410,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -5691,6 +5712,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"account">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -5781,6 +5803,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             account: {
@@ -5870,6 +5893,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>, z.ZodObject<{
             id: z.ZodString;
             account: z.ZodObject<{
@@ -6128,6 +6152,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"account_pro">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -6218,6 +6243,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             account: {
@@ -6307,6 +6333,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>, z.ZodObject<{
             id: z.ZodString;
             account: z.ZodObject<{
@@ -6565,6 +6592,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"account_lts">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -6655,6 +6683,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             account: {
@@ -6744,6 +6773,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>, z.ZodObject<{
             id: z.ZodString;
             account: z.ZodObject<{
@@ -7002,6 +7032,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"ib">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -7092,6 +7123,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             account: {
@@ -7181,6 +7213,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>, z.ZodObject<{
             id: z.ZodString;
             spread: z.ZodNullable<z.ZodNumber>;
@@ -7425,6 +7458,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"asset">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -7509,6 +7543,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             refType: "asset";
@@ -7592,6 +7627,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>, z.ZodObject<{
             id: z.ZodString;
             spread: z.ZodNullable<z.ZodNumber>;
@@ -7836,6 +7872,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"employee_pp">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -7920,6 +7957,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             refType: "employee_pp";
@@ -8003,6 +8041,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>, z.ZodObject<{
             id: z.ZodString;
             spread: z.ZodNullable<z.ZodNumber>;
@@ -8247,6 +8286,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"common">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -8331,6 +8371,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             refType: "common";
@@ -8414,6 +8455,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>]>, "many">;
         taskIds: z.ZodArray<z.ZodString, "many">;
         baseline: z.ZodBoolean;
@@ -8506,6 +8548,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -8632,6 +8675,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -8758,6 +8802,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -8884,6 +8929,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -9010,6 +9056,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -9136,6 +9183,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -9262,6 +9310,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -9394,6 +9443,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -9483,6 +9533,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -9572,6 +9623,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -9661,6 +9713,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "asset";
@@ -9744,6 +9797,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "employee_pp";
@@ -9827,6 +9881,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "common";
@@ -9910,6 +9965,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         })[];
         taskIds: string[];
         baseline: boolean;
@@ -10002,6 +10058,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -10128,6 +10185,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -10254,6 +10312,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -10380,6 +10439,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -10506,6 +10566,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -10632,6 +10693,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -10758,6 +10820,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -10890,6 +10953,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -10979,6 +11043,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -11068,6 +11133,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -11157,6 +11223,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "asset";
@@ -11240,6 +11307,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "employee_pp";
@@ -11323,6 +11391,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "common";
@@ -11406,6 +11475,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         })[];
         taskIds: string[];
         baseline: boolean;
@@ -13990,6 +14060,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -14116,6 +14187,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -14242,6 +14314,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -14368,6 +14441,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -14494,6 +14568,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -14620,6 +14695,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -14746,6 +14822,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -14878,6 +14955,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -14967,6 +15045,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -15056,6 +15135,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -15145,6 +15225,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "asset";
@@ -15228,6 +15309,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "employee_pp";
@@ -15311,6 +15393,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "common";
@@ -15394,6 +15477,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         })[];
         taskIds: string[];
         baseline: boolean;
@@ -15944,6 +16028,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -16070,6 +16155,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -16196,6 +16282,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -16322,6 +16409,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -16448,6 +16536,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -16574,6 +16663,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -16700,6 +16790,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -16832,6 +16923,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -16921,6 +17013,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -17010,6 +17103,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -17099,6 +17193,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "asset";
@@ -17182,6 +17277,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "employee_pp";
@@ -17265,6 +17361,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "common";
@@ -17348,6 +17445,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         })[];
         taskIds: string[];
         baseline: boolean;
@@ -18117,6 +18215,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -18346,6 +18445,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -18460,6 +18560,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -18735,6 +18836,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -18964,6 +19066,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -19078,6 +19181,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -19353,6 +19457,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -19582,6 +19687,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -19696,6 +19802,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -19971,6 +20078,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -20200,6 +20308,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -20314,6 +20423,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -20589,6 +20699,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -20818,6 +20929,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -20932,6 +21044,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -21207,6 +21320,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -21436,6 +21550,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -21550,6 +21665,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -21825,6 +21941,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
@@ -22054,6 +22171,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -22168,6 +22286,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -22457,6 +22576,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"account">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -22547,6 +22667,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             account: {
@@ -22636,6 +22757,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>, z.ZodObject<{
             id: z.ZodString;
             account: z.ZodObject<{
@@ -22894,6 +23016,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"account_pro">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -22984,6 +23107,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             account: {
@@ -23073,6 +23197,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>, z.ZodObject<{
             id: z.ZodString;
             account: z.ZodObject<{
@@ -23331,6 +23456,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"account_lts">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -23421,6 +23547,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             account: {
@@ -23510,6 +23637,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>, z.ZodObject<{
             id: z.ZodString;
             account: z.ZodObject<{
@@ -23768,6 +23896,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"ib">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -23858,6 +23987,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             account: {
@@ -23947,6 +24077,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>, z.ZodObject<{
             id: z.ZodString;
             spread: z.ZodNullable<z.ZodNumber>;
@@ -24191,6 +24322,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"asset">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -24275,6 +24407,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             refType: "asset";
@@ -24358,6 +24491,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>, z.ZodObject<{
             id: z.ZodString;
             spread: z.ZodNullable<z.ZodNumber>;
@@ -24602,6 +24736,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"employee_pp">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -24686,6 +24821,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             refType: "employee_pp";
@@ -24769,6 +24905,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>, z.ZodObject<{
             id: z.ZodString;
             spread: z.ZodNullable<z.ZodNumber>;
@@ -25013,6 +25150,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             }>]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+            conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"common">;
         }, "strip", z.ZodTypeAny, {
             id: string;
@@ -25097,6 +25235,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }, {
             id: string;
             refType: "common";
@@ -25180,6 +25319,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         }>]>, "many">;
     }, "strict", z.ZodTypeAny, {
         id: string;
@@ -25276,6 +25416,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -25365,6 +25506,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -25454,6 +25596,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -25543,6 +25686,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "asset";
@@ -25626,6 +25770,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "employee_pp";
@@ -25709,6 +25854,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "common";
@@ -25792,6 +25938,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "sale";
@@ -25875,6 +26022,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -25989,6 +26137,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -26103,6 +26252,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -26217,6 +26367,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -26331,6 +26482,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -26445,6 +26597,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -26559,6 +26712,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -26688,6 +26842,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -26777,6 +26932,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -26866,6 +27022,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -26955,6 +27112,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "asset";
@@ -27038,6 +27196,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "employee_pp";
@@ -27121,6 +27280,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "common";
@@ -27204,6 +27364,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "sale";
@@ -27287,6 +27448,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -27401,6 +27563,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -27515,6 +27678,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -27629,6 +27793,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -27743,6 +27908,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -27857,6 +28023,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -27971,6 +28138,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -30080,6 +30248,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -30169,6 +30338,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -30258,6 +30428,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -30347,6 +30518,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "asset";
@@ -30430,6 +30602,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "employee_pp";
@@ -30513,6 +30686,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "common";
@@ -30596,6 +30770,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "sale";
@@ -30679,6 +30854,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -30793,6 +30969,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -30907,6 +31084,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -31021,6 +31199,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -31135,6 +31314,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -31249,6 +31429,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -31363,6 +31544,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -31902,6 +32084,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -31991,6 +32174,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -32080,6 +32264,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             account: {
@@ -32169,6 +32354,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "asset";
@@ -32252,6 +32438,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "employee_pp";
@@ -32335,6 +32522,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "common";
@@ -32418,6 +32606,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
         } | {
             id: string;
             refType: "sale";
@@ -32501,6 +32690,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -32615,6 +32805,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -32729,6 +32920,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -32843,6 +33035,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -32957,6 +33150,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -33071,6 +33265,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
@@ -33185,6 +33380,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 name: null;
             };
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+            conversationId: number | null;
             generalObject: {
                 code: string;
                 id: string;
