@@ -1,3 +1,3 @@
 # Shared types
 
-Shared TypeScript types and interfaces.
+Types, schemas and variables shared between server and client.

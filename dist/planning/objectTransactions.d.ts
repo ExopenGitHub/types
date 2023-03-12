@@ -243,6 +243,7 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
 }, "strip", z.ZodTypeAny, {
     id: string;
     spread: number | null;
@@ -325,6 +326,7 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     spread: number | null;
@@ -407,6 +409,7 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>;
 export declare const isAccountObjectTransaction: (objectTransaction: ObjectTransaction) => objectTransaction is {
     id: string;
@@ -497,6 +500,7 @@ export declare const isAccountObjectTransaction: (objectTransaction: ObjectTrans
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 };
 export declare const isGeneralObjectTransaction: (objectTransaction: ObjectTransaction) => objectTransaction is {
     id: string;
@@ -581,6 +585,7 @@ export declare const isGeneralObjectTransaction: (objectTransaction: ObjectTrans
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -869,6 +874,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodUnion<z.ZodLiteral<"sale" | "employee" | "activity_lts" | "sale_pro" | "sale_lts" | "employee_pro" | "employee_lts">[] & [z.ZodLiteral<string>, z.ZodLiteral<string>, ...z.ZodLiteral<string>[]]>;
     generalObject: z.ZodObject<{
         code: z.ZodString;
@@ -1220,6 +1226,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -1346,6 +1353,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -1635,6 +1643,7 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodUnion<z.ZodLiteral<"account" | "account_pro" | "account_lts" | "ib">[] & [z.ZodLiteral<string>, z.ZodLiteral<string>, ...z.ZodLiteral<string>[]]>;
     account: z.ZodObject<{
         id: z.ZodString;
@@ -1739,6 +1748,7 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     account: {
@@ -1828,6 +1838,7 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>;
 export declare type AccountObjectTransaction = z.infer<typeof accountObjectTransactionSchema>;
 export declare const baseObjectTransactions: readonly [z.ZodObject<{
@@ -2074,6 +2085,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"asset">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -2158,6 +2170,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     refType: "asset";
@@ -2241,6 +2254,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>, z.ZodObject<{
     id: z.ZodString;
     spread: z.ZodNullable<z.ZodNumber>;
@@ -2485,6 +2499,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"employee_pp">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -2569,6 +2584,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     refType: "employee_pp";
@@ -2652,6 +2668,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>, z.ZodObject<{
     id: z.ZodString;
     spread: z.ZodNullable<z.ZodNumber>;
@@ -2896,6 +2913,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"common">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -2980,6 +2998,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     refType: "common";
@@ -3063,6 +3082,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>];
 export declare const accountObjectTransactions: readonly [z.ZodObject<{
     id: z.ZodString;
@@ -3322,6 +3342,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"account">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -3412,6 +3433,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     account: {
@@ -3501,6 +3523,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>, z.ZodObject<{
     id: z.ZodString;
     account: z.ZodObject<{
@@ -3759,6 +3782,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"account_pro">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -3849,6 +3873,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     account: {
@@ -3938,6 +3963,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>, z.ZodObject<{
     id: z.ZodString;
     account: z.ZodObject<{
@@ -4196,6 +4222,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"account_lts">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -4286,6 +4313,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     account: {
@@ -4375,6 +4403,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>, z.ZodObject<{
     id: z.ZodString;
     account: z.ZodObject<{
@@ -4633,6 +4662,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"ib">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -4723,6 +4753,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     account: {
@@ -4812,6 +4843,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>];
 export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType", [z.ZodObject<{
     id: z.ZodString;
@@ -5057,6 +5089,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
         code: z.ZodString;
         id: z.ZodString;
@@ -5408,6 +5441,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -5534,6 +5568,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -5821,6 +5856,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
         code: z.ZodString;
         id: z.ZodString;
@@ -6172,6 +6208,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -6298,6 +6335,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -6585,6 +6623,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
         code: z.ZodString;
         id: z.ZodString;
@@ -6936,6 +6975,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -7062,6 +7102,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -7349,6 +7390,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
         code: z.ZodString;
         id: z.ZodString;
@@ -7700,6 +7742,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -7826,6 +7869,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -8113,6 +8157,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
         code: z.ZodString;
         id: z.ZodString;
@@ -8464,6 +8509,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -8590,6 +8636,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -8877,6 +8924,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
         code: z.ZodString;
         id: z.ZodString;
@@ -9228,6 +9276,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -9354,6 +9403,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -9641,6 +9691,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
         code: z.ZodString;
         id: z.ZodString;
@@ -9992,6 +10043,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -10118,6 +10170,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
     generalObject: {
         code: string;
         id: string;
@@ -10419,6 +10472,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"account">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -10509,6 +10563,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     account: {
@@ -10598,6 +10653,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>, z.ZodObject<{
     id: z.ZodString;
     account: z.ZodObject<{
@@ -10856,6 +10912,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"account_pro">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -10946,6 +11003,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     account: {
@@ -11035,6 +11093,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>, z.ZodObject<{
     id: z.ZodString;
     account: z.ZodObject<{
@@ -11293,6 +11352,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"account_lts">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -11383,6 +11443,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     account: {
@@ -11472,6 +11533,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>, z.ZodObject<{
     id: z.ZodString;
     account: z.ZodObject<{
@@ -11730,6 +11792,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"ib">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -11820,6 +11883,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     account: {
@@ -11909,6 +11973,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>, z.ZodObject<{
     id: z.ZodString;
     spread: z.ZodNullable<z.ZodNumber>;
@@ -12153,6 +12218,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"asset">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -12237,6 +12303,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     refType: "asset";
@@ -12320,6 +12387,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>, z.ZodObject<{
     id: z.ZodString;
     spread: z.ZodNullable<z.ZodNumber>;
@@ -12564,6 +12632,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"employee_pp">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -12648,6 +12717,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     refType: "employee_pp";
@@ -12731,6 +12801,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>, z.ZodObject<{
     id: z.ZodString;
     spread: z.ZodNullable<z.ZodNumber>;
@@ -12975,6 +13046,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     }>]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
+    conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"common">;
 }, "strip", z.ZodTypeAny, {
     id: string;
@@ -13059,6 +13131,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }, {
     id: string;
     refType: "common";
@@ -13142,5 +13215,6 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         name: null;
     };
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
+    conversationId: number | null;
 }>]>;
 export declare type ObjectTransaction = z.infer<typeof objectTransactionSchema>;
