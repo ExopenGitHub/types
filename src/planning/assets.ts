@@ -21,7 +21,16 @@ export const assetTypeSchema = z.object({
   accumulatedWriteDownsAccount: accountSchema,
   capitalGainsAssetsAccount: accountSchema,
   lossesAssetsAccount: accountSchema,
-  createdAt: z.date(),
+  createdAt: z
+    .date()
+    .or(z.string())
+    .transform((value) => {
+      if (typeof value === "string") {
+        return new Date(value);
+      }
+
+      return value;
+    }),
 });
 
 export type AssetType = z.infer<typeof assetTypeSchema>;
