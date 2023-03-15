@@ -121,7 +121,7 @@ export declare const assetTypeSchema: z.ZodObject<{
         accountNumber: string;
         accountName: string;
     }>;
-    createdAt: z.ZodDate;
+    createdAt: z.ZodEffects<z.ZodUnion<[z.ZodDate, z.ZodString]>, Date, string | Date>;
 }, "strip", z.ZodTypeAny, {
     id: string;
     name: string;
@@ -176,7 +176,7 @@ export declare const assetTypeSchema: z.ZodObject<{
 }, {
     id: string | bigint;
     name: string;
-    createdAt: Date;
+    createdAt: string | Date;
     depreciableAmount: number;
     note: string;
     assetAccount: {
@@ -352,7 +352,7 @@ export declare const assetSchema: z.ZodObject<{
             accountNumber: string;
             accountName: string;
         }>;
-        createdAt: z.ZodDate;
+        createdAt: z.ZodEffects<z.ZodUnion<[z.ZodDate, z.ZodString]>, Date, string | Date>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         name: string;
@@ -407,7 +407,7 @@ export declare const assetSchema: z.ZodObject<{
     }, {
         id: string | bigint;
         name: string;
-        createdAt: Date;
+        createdAt: string | Date;
         depreciableAmount: number;
         note: string;
         assetAccount: {
@@ -1006,7 +1006,7 @@ export declare const assetSchema: z.ZodObject<{
     assetType: {
         id: string | bigint;
         name: string;
-        createdAt: Date;
+        createdAt: string | Date;
         depreciableAmount: number;
         note: string;
         assetAccount: {
@@ -1287,7 +1287,7 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
             accountNumber: string;
             accountName: string;
         }>;
-        createdAt: z.ZodDate;
+        createdAt: z.ZodEffects<z.ZodUnion<[z.ZodDate, z.ZodString]>, Date, string | Date>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         name: string;
@@ -1342,7 +1342,7 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
     }, {
         id: string | bigint;
         name: string;
-        createdAt: Date;
+        createdAt: string | Date;
         depreciableAmount: number;
         note: string;
         assetAccount: {
@@ -1694,7 +1694,7 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
     assetType: {
         id: string | bigint;
         name: string;
-        createdAt: Date;
+        createdAt: string | Date;
         depreciableAmount: number;
         note: string;
         assetAccount: {
@@ -1920,7 +1920,7 @@ export declare const getAssetTypesResponseSchema: z.ZodArray<z.ZodObject<{
         accountNumber: string;
         accountName: string;
     }>;
-    createdAt: z.ZodDate;
+    createdAt: z.ZodEffects<z.ZodUnion<[z.ZodDate, z.ZodString]>, Date, string | Date>;
 }, "strip", z.ZodTypeAny, {
     id: string;
     name: string;
@@ -1975,7 +1975,7 @@ export declare const getAssetTypesResponseSchema: z.ZodArray<z.ZodObject<{
 }, {
     id: string | bigint;
     name: string;
-    createdAt: Date;
+    createdAt: string | Date;
     depreciableAmount: number;
     note: string;
     assetAccount: {

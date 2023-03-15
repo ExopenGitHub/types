@@ -12074,7 +12074,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 accountNumber: string;
                 accountName: string;
             }>;
-            createdAt: z.ZodDate;
+            createdAt: z.ZodEffects<z.ZodUnion<[z.ZodDate, z.ZodString]>, Date, string | Date>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             name: string;
@@ -12129,7 +12129,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
         }, {
             id: string | bigint;
             name: string;
-            createdAt: Date;
+            createdAt: string | Date;
             depreciableAmount: number;
             note: string;
             assetAccount: {
@@ -12728,7 +12728,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
         assetType: {
             id: string | bigint;
             name: string;
-            createdAt: Date;
+            createdAt: string | Date;
             depreciableAmount: number;
             note: string;
             assetAccount: {
@@ -17560,7 +17560,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
         assetType: {
             id: string | bigint;
             name: string;
-            createdAt: Date;
+            createdAt: string | Date;
             depreciableAmount: number;
             note: string;
             assetAccount: {
@@ -28488,7 +28488,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 accountNumber: string;
                 accountName: string;
             }>;
-            createdAt: z.ZodDate;
+            createdAt: z.ZodEffects<z.ZodUnion<[z.ZodDate, z.ZodString]>, Date, string | Date>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             name: string;
@@ -28543,7 +28543,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
         }, {
             id: string | bigint;
             name: string;
-            createdAt: Date;
+            createdAt: string | Date;
             depreciableAmount: number;
             note: string;
             assetAccount: {
@@ -28895,7 +28895,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
         assetType: {
             id: string | bigint;
             name: string;
-            createdAt: Date;
+            createdAt: string | Date;
             depreciableAmount: number;
             note: string;
             assetAccount: {
@@ -33514,7 +33514,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
         assetType: {
             id: string | bigint;
             name: string;
-            createdAt: Date;
+            createdAt: string | Date;
             depreciableAmount: number;
             note: string;
             assetAccount: {
