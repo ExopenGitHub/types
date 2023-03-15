@@ -1,11 +1,11 @@
 import { z } from "zod";
-import { accountSchema } from "./accounts.js";
+import { legacyAccountSchema } from "./accounts.js";
 import { ACCOUNT_RECIPE_MODULE_TAGS } from "./constants.js";
 
 const commonAccountRecipeSchema = z.object({
   id: z.string(),
   amount: z.number(),
-  account: accountSchema,
+  account: legacyAccountSchema,
   offsetDays: z.union([z.number(), z.null()]),
   amountType: z.union([z.literal("fixed"), z.literal("percent")]),
 });

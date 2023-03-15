@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { accountSchema } from "./accounts.js";
+import { legacyAccountSchema } from "./accounts.js";
 
 export const vatSettingSchema = z.object({
   id: z.string(),
@@ -10,12 +10,12 @@ export const vatSettingSchema = z.object({
     z.literal("monthLt40"),
     z.literal("monthGte40"),
   ]),
-  inVatAccounts: z.array(accountSchema),
-  outVatAccounts: z.array(accountSchema),
-  vatRecAccountAsset: accountSchema,
-  vatRecAccountDebt: accountSchema,
-  taxAccount: accountSchema,
-  checkAccount: accountSchema,
+  inVatAccounts: z.array(legacyAccountSchema),
+  outVatAccounts: z.array(legacyAccountSchema),
+  vatRecAccountAsset: legacyAccountSchema,
+  vatRecAccountDebt: legacyAccountSchema,
+  taxAccount: legacyAccountSchema,
+  checkAccount: legacyAccountSchema,
   active: z.boolean(),
   planId: z.string(),
   createdAt: z.date(),

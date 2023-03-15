@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { bigIntAsStringSchema } from "../common/bigIntAsStringSchema.js";
 import { organizationalUnitSchema } from "./accountingObject.js";
 import {
   accountRecipeSchema,
@@ -7,7 +8,7 @@ import {
 import { accountSchema } from "./accounts.js";
 
 export const assetTypeSchema = z.object({
-  id: z.string(),
+  id: bigIntAsStringSchema,
   name: z.string(),
   depreciableAmount: z.number(),
   note: z.string(),
@@ -20,7 +21,7 @@ export const assetTypeSchema = z.object({
   accumulatedWriteDownsAccount: accountSchema,
   capitalGainsAssetsAccount: accountSchema,
   lossesAssetsAccount: accountSchema,
-  createdAt: z.string(),
+  createdAt: z.date(),
 });
 
 export type AssetType = z.infer<typeof assetTypeSchema>;

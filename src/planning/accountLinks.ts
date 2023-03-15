@@ -3,14 +3,14 @@ import {
   accountRecipeSchema,
   getAccountRecipesResponseSchema,
 } from "./accountRecipes.js";
-import { accountSchema } from "./accounts.js";
+import { legacyAccountSchema } from "./accounts.js";
 
 export const accountLinkSchema = z.object({
   id: z.string(),
   name: z.string(),
   description: z.string(),
   planId: z.string(),
-  accounts: z.array(accountSchema),
+  accounts: z.array(legacyAccountSchema),
   accountRecipes: z.array(accountRecipeSchema),
   active: z.boolean(),
   ibOnly: z.boolean(),
