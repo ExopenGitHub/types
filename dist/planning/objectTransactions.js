@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { accountSchema } from "./accounts.js";
+import { legacyAccountSchema } from "./accounts.js";
 import { distributionSchema } from "./distribution.js";
 import { perValueSchema } from "./enums.js";
 import { generalObjectSchema, accountingObjectBaseSchema, } from "./accountingObject.js";
@@ -46,7 +46,7 @@ export const baseObjectTransactionSchema = z.object({
     productDim: objectTransactionDim,
     costBearerDim: objectTransactionDim,
     per: perValueSchema,
-    conversationId: z.number().or(z.null())
+    conversationId: z.number().or(z.null()),
 });
 export const isAccountObjectTransaction = (objectTransaction) => {
     return (objectTransaction.refType === "account" ||
@@ -74,7 +74,7 @@ export const accountObjectTransactionSchema = baseObjectTransactionSchema
     // .omit({ account: true })
     .extend({
     refType: z.union(accountObjectRefTypeLiteralArray),
-    account: accountSchema,
+    account: legacyAccountSchema,
     amount: z.number(),
 });
 export const baseObjectTransactions = [

@@ -1,13 +1,13 @@
 import { z } from "zod";
 import { benefitObjectSchema, organizationalUnitSchema, } from "./accountingObject.js";
 import { getAccountRecipesResponseSchema } from "./accountRecipes.js";
-import { accountSchema } from "./accounts.js";
+import { legacyAccountSchema } from "./accounts.js";
 export const personnelTypeSchema = z.object({
     id: z.string(),
     name: z.string(),
-    salaryAccount: accountSchema,
-    holidayPayAccount: accountSchema,
-    ChangeAccruedHolidayPayAccount: accountSchema,
+    salaryAccount: legacyAccountSchema,
+    holidayPayAccount: legacyAccountSchema,
+    ChangeAccruedHolidayPayAccount: legacyAccountSchema,
     createdAt: z.string(),
     planId: z.string(),
 });
@@ -77,16 +77,16 @@ export const getEmployeePerPersonResponseSchema = z.array(employeePerPersonSchem
 }));
 export const employeeSettingSchema = z.object({
     id: z.string(),
-    socialSecurityAccount: accountSchema,
-    socialSecurityHolidayPayAccount: accountSchema,
-    pensionAccount: accountSchema,
-    groupInsuranceAccount: accountSchema,
-    specialPayrollTaxAccount: accountSchema,
-    employeeTaxesDebtAccount: accountSchema,
-    socialSecurityDebtAccount: accountSchema,
-    accruedHolidayPayDebtAccount: accountSchema,
-    accruedSocialSecurityDebtAccount: accountSchema,
-    checkAccount: accountSchema,
+    socialSecurityAccount: legacyAccountSchema,
+    socialSecurityHolidayPayAccount: legacyAccountSchema,
+    pensionAccount: legacyAccountSchema,
+    groupInsuranceAccount: legacyAccountSchema,
+    specialPayrollTaxAccount: legacyAccountSchema,
+    employeeTaxesDebtAccount: legacyAccountSchema,
+    socialSecurityDebtAccount: legacyAccountSchema,
+    accruedHolidayPayDebtAccount: legacyAccountSchema,
+    accruedSocialSecurityDebtAccount: legacyAccountSchema,
+    checkAccount: legacyAccountSchema,
     name: z.string(),
     active: z.boolean(),
     createdAt: z.date(),
