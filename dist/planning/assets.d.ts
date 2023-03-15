@@ -1,123 +1,123 @@
 import { z } from "zod";
 export declare const assetTypeSchema: z.ZodObject<{
-    id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+    id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     name: z.ZodString;
     depreciableAmount: z.ZodNumber;
     note: z.ZodString;
     assetAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     depreciationAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     revaluationAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     writeDownAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     saleCounterAcount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     accumulatedDepreciationsAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     accumulatedWriteDownsAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     capitalGainsAssetsAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     lossesAssetsAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
@@ -174,53 +174,53 @@ export declare const assetTypeSchema: z.ZodObject<{
         accountName: string;
     };
 }, {
-    id: bigint;
+    id: string | bigint;
     name: string;
     createdAt: Date;
     depreciableAmount: number;
     note: string;
     assetAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     depreciationAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     revaluationAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     writeDownAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     saleCounterAcount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     accumulatedDepreciationsAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     accumulatedWriteDownsAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     capitalGainsAssetsAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     lossesAssetsAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
@@ -231,124 +231,124 @@ export declare const assetSchema: z.ZodObject<{
     assetNumber: z.ZodString;
     description: z.ZodString;
     assetType: z.ZodObject<{
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         name: z.ZodString;
         depreciableAmount: z.ZodNumber;
         note: z.ZodString;
         assetAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         depreciationAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         revaluationAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         writeDownAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         saleCounterAcount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         accumulatedDepreciationsAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         accumulatedWriteDownsAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         capitalGainsAssetsAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         lossesAssetsAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
@@ -405,53 +405,53 @@ export declare const assetSchema: z.ZodObject<{
             accountName: string;
         };
     }, {
-        id: bigint;
+        id: string | bigint;
         name: string;
         createdAt: Date;
         depreciableAmount: number;
         note: string;
         assetAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         depreciationAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         revaluationAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         writeDownAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         saleCounterAcount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         accumulatedDepreciationsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         accumulatedWriteDownsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         capitalGainsAssetsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         lossesAssetsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
@@ -1004,53 +1004,53 @@ export declare const assetSchema: z.ZodObject<{
     taskId: string;
     assetNumber: string;
     assetType: {
-        id: bigint;
+        id: string | bigint;
         name: string;
         createdAt: Date;
         depreciableAmount: number;
         note: string;
         assetAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         depreciationAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         revaluationAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         writeDownAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         saleCounterAcount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         accumulatedDepreciationsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         accumulatedWriteDownsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         capitalGainsAssetsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         lossesAssetsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
@@ -1166,124 +1166,124 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
     taskId: z.ZodString;
     assetNumber: z.ZodString;
     assetType: z.ZodObject<{
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         name: z.ZodString;
         depreciableAmount: z.ZodNumber;
         note: z.ZodString;
         assetAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         depreciationAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         revaluationAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         writeDownAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         saleCounterAcount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         accumulatedDepreciationsAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         accumulatedWriteDownsAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         capitalGainsAssetsAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
         lossesAssetsAccount: z.ZodObject<{
             accountNumber: z.ZodString;
             accountName: z.ZodString;
-            id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+            id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             accountNumber: string;
             accountName: string;
         }, {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         }>;
@@ -1340,53 +1340,53 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
             accountName: string;
         };
     }, {
-        id: bigint;
+        id: string | bigint;
         name: string;
         createdAt: Date;
         depreciableAmount: number;
         note: string;
         assetAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         depreciationAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         revaluationAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         writeDownAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         saleCounterAcount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         accumulatedDepreciationsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         accumulatedWriteDownsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         capitalGainsAssetsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         lossesAssetsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
@@ -1692,53 +1692,53 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
     taskId: string;
     assetNumber: string;
     assetType: {
-        id: bigint;
+        id: string | bigint;
         name: string;
         createdAt: Date;
         depreciableAmount: number;
         note: string;
         assetAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         depreciationAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         revaluationAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         writeDownAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         saleCounterAcount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         accumulatedDepreciationsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         accumulatedWriteDownsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         capitalGainsAssetsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
         lossesAssetsAccount: {
-            id: bigint;
+            id: string | bigint;
             accountNumber: string;
             accountName: string;
         };
@@ -1799,124 +1799,124 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
 }>, "many">;
 export declare type GetAssetsResponse = z.infer<typeof getAssetsResponseSchema>;
 export declare const getAssetTypesResponseSchema: z.ZodArray<z.ZodObject<{
-    id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+    id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     name: z.ZodString;
     depreciableAmount: z.ZodNumber;
     note: z.ZodString;
     assetAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     depreciationAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     revaluationAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     writeDownAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     saleCounterAcount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     accumulatedDepreciationsAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     accumulatedWriteDownsAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     capitalGainsAssetsAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
     lossesAssetsAccount: z.ZodObject<{
         accountNumber: z.ZodString;
         accountName: z.ZodString;
-        id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+        id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         accountNumber: string;
         accountName: string;
     }, {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     }>;
@@ -1973,53 +1973,53 @@ export declare const getAssetTypesResponseSchema: z.ZodArray<z.ZodObject<{
         accountName: string;
     };
 }, {
-    id: bigint;
+    id: string | bigint;
     name: string;
     createdAt: Date;
     depreciableAmount: number;
     note: string;
     assetAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     depreciationAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     revaluationAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     writeDownAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     saleCounterAcount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     accumulatedDepreciationsAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     accumulatedWriteDownsAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     capitalGainsAssetsAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };
     lossesAssetsAccount: {
-        id: bigint;
+        id: string | bigint;
         accountNumber: string;
         accountName: string;
     };

@@ -16,13 +16,13 @@ export declare type LegacyAccount = z.infer<typeof legacyAccountSchema>;
 export declare const accountSchema: z.ZodObject<{
     accountNumber: z.ZodString;
     accountName: z.ZodString;
-    id: z.ZodEffects<z.ZodBigInt, string, bigint>;
+    id: z.ZodEffects<z.ZodUnion<[z.ZodBigInt, z.ZodString]>, string, string | bigint>;
 }, "strip", z.ZodTypeAny, {
     id: string;
     accountNumber: string;
     accountName: string;
 }, {
-    id: bigint;
+    id: string | bigint;
     accountNumber: string;
     accountName: string;
 }>;
