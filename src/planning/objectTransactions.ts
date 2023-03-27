@@ -33,14 +33,6 @@ const accountObjectRefTypeLiteralArray = accountObjectRefTypes.map((refType) =>
   z.literal(refType)
 );
 
-const emptyDim = z.object({
-  id: z.null(),
-  name: z.null(),
-  code: z.null(),
-});
-
-const objectTransactionDim = z.union([accountingObjectBaseSchema, emptyDim]);
-
 export const baseObjectTransactionSchema = z.object({
   id: z.string(),
   spread: z.number().nullable(),
@@ -54,11 +46,11 @@ export const baseObjectTransactionSchema = z.object({
   // generalObject: z.null(),
   // account: z.null(),
   distribution: z.array(distributionSchema),
-  customerDim: objectTransactionDim,
-  supplierDim: objectTransactionDim,
-  projectDim: objectTransactionDim,
-  productDim: objectTransactionDim,
-  costBearerDim: objectTransactionDim,
+  customerDim: accountingObjectBaseSchema.or(z.null()),
+  supplierDim: accountingObjectBaseSchema.or(z.null()),
+  projectDim: accountingObjectBaseSchema.or(z.null()),
+  productDim: accountingObjectBaseSchema.or(z.null()),
+  costBearerDim: accountingObjectBaseSchema.or(z.null()),
   per: perValueSchema,
   conversationId: z.number().or(z.null()),
 });

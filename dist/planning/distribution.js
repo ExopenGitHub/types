@@ -4,5 +4,5 @@ export const distributionSchema = z.object({
     id: z.string(),
     amount: z.number(),
     objectTransactionId: z.string(),
-    organizationalUnit: organizationalUnitSchema,
+    organizationalUnit: organizationalUnitSchema.or(z.null()),
 });

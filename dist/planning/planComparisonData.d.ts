@@ -38,10 +38,11 @@ export declare const planComparisonDataSchema: z.ZodObject<{
         createdAt: Date;
         periodFrom: string;
         periodTo: string;
+        owner: string;
+        rootTaskId: string;
         basedOnPlanId: string | null;
         legalEntityId: string;
         actualsFrom: string;
-        rootTaskId: string;
         comparisonPlans: {
             planId: string;
             taskId: string;
@@ -53,7 +54,6 @@ export declare const planComparisonDataSchema: z.ZodObject<{
         periodLength: number;
         companyId: string;
         thousands: boolean;
-        owner: string;
     }, {
         id: string;
         name: string;
@@ -62,10 +62,11 @@ export declare const planComparisonDataSchema: z.ZodObject<{
         createdAt: Date;
         periodFrom: string;
         periodTo: string;
+        owner: string;
+        rootTaskId: string;
         basedOnPlanId: string | null;
         legalEntityId: string;
         actualsFrom: string;
-        rootTaskId: string;
         comparisonPlans: {
             planId: string;
             taskId: string;
@@ -77,7 +78,6 @@ export declare const planComparisonDataSchema: z.ZodObject<{
         periodLength: number;
         companyId: string;
         thousands: boolean;
-        owner: string;
     }>;
     allScenarios: z.ZodArray<z.ZodObject<{
         id: z.ZodString;
@@ -151,7 +151,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -175,7 +175,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -188,7 +188,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -201,7 +201,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -215,19 +215,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -240,19 +228,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -265,19 +241,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -290,19 +254,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -315,19 +267,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -633,53 +573,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -760,53 +680,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -918,7 +818,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -942,7 +842,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -955,7 +855,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -968,7 +868,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -982,19 +882,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -1007,19 +895,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -1032,19 +908,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -1057,19 +921,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -1082,19 +934,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -1400,53 +1240,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -1527,53 +1347,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -1685,7 +1485,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -1709,7 +1509,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -1722,7 +1522,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -1735,7 +1535,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -1749,19 +1549,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -1774,19 +1562,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -1799,19 +1575,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -1824,19 +1588,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -1849,19 +1601,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -2167,53 +1907,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -2294,53 +2014,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -2452,7 +2152,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -2476,7 +2176,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -2489,7 +2189,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -2502,7 +2202,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -2516,19 +2216,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -2541,19 +2229,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -2566,19 +2242,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -2591,19 +2255,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -2616,19 +2268,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -2934,53 +2574,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -3061,53 +2681,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -3219,7 +2819,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -3243,7 +2843,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -3256,7 +2856,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -3269,7 +2869,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -3283,19 +2883,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -3308,19 +2896,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -3333,19 +2909,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -3358,19 +2922,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -3383,19 +2935,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -3701,53 +3241,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -3828,53 +3348,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -3986,7 +3486,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -4010,7 +3510,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -4023,7 +3523,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -4036,7 +3536,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -4050,19 +3550,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -4075,19 +3563,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -4100,19 +3576,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -4125,19 +3589,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -4150,19 +3602,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -4468,53 +3908,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -4595,53 +4015,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -4753,7 +4153,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -4777,7 +4177,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -4790,7 +4190,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -4803,7 +4203,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -4817,19 +4217,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -4842,19 +4230,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -4867,19 +4243,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -4892,19 +4256,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -4917,19 +4269,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -5235,53 +4575,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -5362,53 +4682,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -5534,7 +4834,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -5558,7 +4858,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -5571,7 +4871,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -5584,7 +4884,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -5598,19 +4898,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -5623,19 +4911,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -5648,19 +4924,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -5673,19 +4937,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -5698,19 +4950,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"account">;
@@ -5755,53 +4995,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -5845,53 +5065,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>, z.ZodObject<{
@@ -5974,7 +5174,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -5998,7 +5198,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -6011,7 +5211,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -6024,7 +5224,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -6038,19 +5238,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -6063,19 +5251,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -6088,19 +5264,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -6113,19 +5277,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -6138,19 +5290,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"account_pro">;
@@ -6195,53 +5335,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -6285,53 +5405,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>, z.ZodObject<{
@@ -6414,7 +5514,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -6438,7 +5538,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -6451,7 +5551,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -6464,7 +5564,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -6478,19 +5578,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -6503,19 +5591,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -6528,19 +5604,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -6553,19 +5617,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -6578,19 +5630,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"account_lts">;
@@ -6635,53 +5675,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -6725,53 +5745,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>, z.ZodObject<{
@@ -6854,7 +5854,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -6878,7 +5878,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -6891,7 +5891,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -6904,7 +5904,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -6918,19 +5918,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -6943,19 +5931,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -6968,19 +5944,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -6993,19 +5957,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -7018,19 +5970,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"ib">;
@@ -7075,53 +6015,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -7165,53 +6085,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>, z.ZodObject<{
@@ -7280,7 +6180,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -7304,7 +6204,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -7317,7 +6217,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -7330,7 +6230,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -7344,19 +6244,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -7369,19 +6257,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -7394,19 +6270,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -7419,19 +6283,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -7444,19 +6296,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"asset">;
@@ -7495,53 +6335,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -7579,53 +6399,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>, z.ZodObject<{
@@ -7694,7 +6494,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -7718,7 +6518,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -7731,7 +6531,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -7744,7 +6544,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -7758,19 +6558,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -7783,19 +6571,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -7808,19 +6584,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -7833,19 +6597,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -7858,19 +6610,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"employee_pp">;
@@ -7909,53 +6649,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -7993,53 +6713,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>, z.ZodObject<{
@@ -8108,7 +6808,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -8132,7 +6832,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -8145,7 +6845,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -8158,7 +6858,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -8172,19 +6872,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -8197,19 +6885,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -8222,19 +6898,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -8247,19 +6911,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -8272,19 +6924,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"common">;
@@ -8323,53 +6963,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -8407,53 +7027,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>]>, "many">;
@@ -8500,53 +7100,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -8627,53 +7207,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -8754,53 +7314,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -8881,53 +7421,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -9008,53 +7528,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -9135,53 +7635,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -9262,53 +7742,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -9395,53 +7855,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -9485,53 +7925,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -9575,53 +7995,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -9665,53 +8065,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -9749,53 +8129,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -9833,53 +8193,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -9917,53 +8257,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         })[];
@@ -10010,53 +8330,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -10137,53 +8437,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -10264,53 +8544,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -10391,53 +8651,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -10518,53 +8758,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -10645,53 +8865,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -10772,53 +8972,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -10905,53 +9085,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -10995,53 +9155,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -11085,53 +9225,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -11175,53 +9295,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -11259,53 +9359,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -11343,53 +9423,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -11427,53 +9487,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         })[];
@@ -12178,7 +10218,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 accountName: string;
             };
         }>;
-        organizationalUnitId: z.ZodObject<{
+        organizationalUnitId: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -12202,7 +10242,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
         acquisitionValue: z.ZodNumber;
         residualValue: z.ZodNumber;
         acquisitionDate: z.ZodString;
@@ -12577,7 +10617,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         scenarioId: string;
         taskId: string;
         assetNumber: string;
@@ -12721,7 +10761,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         scenarioId: string;
         taskId: string;
         assetNumber: string;
@@ -12989,7 +11029,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
             id: z.ZodString;
             amount: z.ZodNumber;
             employeeId: z.ZodString;
-            organizationalUnit: z.ZodObject<{
+            organizationalUnit: z.ZodUnion<[z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
                 active: z.ZodBoolean;
@@ -13013,7 +11053,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            }>;
+            }>, z.ZodNull]>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             amount: number;
@@ -13025,7 +11065,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            };
+            } | null;
             employeeId: string;
         }, {
             id: string;
@@ -13038,7 +11078,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            };
+            } | null;
             employeeId: string;
         }>, "many">;
         serviceLevelAllocationKeyId: z.ZodObject<{
@@ -13437,7 +11477,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            };
+            } | null;
             employeeId: string;
         }[];
         employeeCode: string;
@@ -13573,7 +11613,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            };
+            } | null;
             employeeId: string;
         }[];
         employeeCode: string;
@@ -13954,10 +11994,11 @@ export declare const planComparisonDataSchema: z.ZodObject<{
         createdAt: Date;
         periodFrom: string;
         periodTo: string;
+        owner: string;
+        rootTaskId: string;
         basedOnPlanId: string | null;
         legalEntityId: string;
         actualsFrom: string;
-        rootTaskId: string;
         comparisonPlans: {
             planId: string;
             taskId: string;
@@ -13969,7 +12010,6 @@ export declare const planComparisonDataSchema: z.ZodObject<{
         periodLength: number;
         companyId: string;
         thousands: boolean;
-        owner: string;
     };
     allScenarios: {
         id: string;
@@ -14012,53 +12052,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -14139,53 +12159,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -14266,53 +12266,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -14393,53 +12373,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -14520,53 +12480,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -14647,53 +12587,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -14774,53 +12694,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -14907,53 +12807,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -14997,53 +12877,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -15087,53 +12947,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -15177,53 +13017,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -15261,53 +13081,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -15345,53 +13145,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -15429,53 +13209,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         })[];
@@ -15585,7 +13345,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         scenarioId: string;
         taskId: string;
         assetNumber: string;
@@ -15733,7 +13493,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            };
+            } | null;
             employeeId: string;
         }[];
         employeeCode: string;
@@ -15922,10 +13682,11 @@ export declare const planComparisonDataSchema: z.ZodObject<{
         createdAt: Date;
         periodFrom: string;
         periodTo: string;
+        owner: string;
+        rootTaskId: string;
         basedOnPlanId: string | null;
         legalEntityId: string;
         actualsFrom: string;
-        rootTaskId: string;
         comparisonPlans: {
             planId: string;
             taskId: string;
@@ -15937,7 +13698,6 @@ export declare const planComparisonDataSchema: z.ZodObject<{
         periodLength: number;
         companyId: string;
         thousands: boolean;
-        owner: string;
     };
     allScenarios: {
         id: string;
@@ -15980,53 +13740,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -16107,53 +13847,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -16234,53 +13954,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -16361,53 +14061,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -16488,53 +14168,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -16615,53 +14275,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -16742,53 +14382,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -16875,53 +14495,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -16965,53 +14565,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -17055,53 +14635,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -17145,53 +14705,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -17229,53 +14769,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -17313,53 +14833,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -17397,53 +14897,33 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         })[];
@@ -17553,7 +15033,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         scenarioId: string;
         taskId: string;
         assetNumber: string;
@@ -17701,7 +15181,7 @@ export declare const planComparisonDataSchema: z.ZodObject<{
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            };
+            } | null;
             employeeId: string;
         }[];
         employeeCode: string;
@@ -17922,10 +15402,11 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
         createdAt: Date;
         periodFrom: string;
         periodTo: string;
+        owner: string;
+        rootTaskId: string;
         basedOnPlanId: string | null;
         legalEntityId: string;
         actualsFrom: string;
-        rootTaskId: string;
         comparisonPlans: {
             planId: string;
             taskId: string;
@@ -17937,7 +15418,6 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
         periodLength: number;
         companyId: string;
         thousands: boolean;
-        owner: string;
     }, {
         id: string;
         name: string;
@@ -17946,10 +15426,11 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
         createdAt: Date;
         periodFrom: string;
         periodTo: string;
+        owner: string;
+        rootTaskId: string;
         basedOnPlanId: string | null;
         legalEntityId: string;
         actualsFrom: string;
-        rootTaskId: string;
         comparisonPlans: {
             planId: string;
             taskId: string;
@@ -17961,7 +15442,6 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
         periodLength: number;
         companyId: string;
         thousands: boolean;
-        owner: string;
     }>;
     allScenarios: z.ZodArray<z.ZodObject<{
         id: z.ZodString;
@@ -18037,7 +15517,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -18061,7 +15541,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -18074,7 +15554,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -18087,7 +15567,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -18101,19 +15581,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -18126,19 +15594,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -18151,19 +15607,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -18176,19 +15620,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -18201,19 +15633,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -18397,53 +15817,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -18512,53 +15912,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -18658,7 +16038,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -18682,7 +16062,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -18695,7 +16075,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -18708,7 +16088,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -18722,19 +16102,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -18747,19 +16115,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -18772,19 +16128,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -18797,19 +16141,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -18822,19 +16154,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -19018,53 +16338,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -19133,53 +16433,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -19279,7 +16559,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -19303,7 +16583,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -19316,7 +16596,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -19329,7 +16609,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -19343,19 +16623,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -19368,19 +16636,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -19393,19 +16649,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -19418,19 +16662,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -19443,19 +16675,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -19639,53 +16859,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -19754,53 +16954,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -19900,7 +17080,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -19924,7 +17104,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -19937,7 +17117,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -19950,7 +17130,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -19964,19 +17144,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -19989,19 +17157,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -20014,19 +17170,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -20039,19 +17183,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -20064,19 +17196,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -20260,53 +17380,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -20375,53 +17475,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -20521,7 +17601,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -20545,7 +17625,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -20558,7 +17638,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -20571,7 +17651,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -20585,19 +17665,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -20610,19 +17678,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -20635,19 +17691,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -20660,19 +17704,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -20685,19 +17717,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -20881,53 +17901,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -20996,53 +17996,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -21142,7 +18122,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -21166,7 +18146,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -21179,7 +18159,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -21192,7 +18172,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -21206,19 +18186,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -21231,19 +18199,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -21256,19 +18212,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -21281,19 +18225,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -21306,19 +18238,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -21502,53 +18422,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -21617,53 +18517,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -21763,7 +18643,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -21787,7 +18667,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -21800,7 +18680,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -21813,7 +18693,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -21827,19 +18707,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -21852,19 +18720,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -21877,19 +18733,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -21902,19 +18746,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -21927,19 +18759,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             generalObject: z.ZodObject<{
@@ -22123,53 +18943,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -22238,53 +19038,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -22398,7 +19178,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -22422,7 +19202,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -22435,7 +19215,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -22448,7 +19228,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -22462,19 +19242,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -22487,19 +19255,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -22512,19 +19268,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -22537,19 +19281,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -22562,19 +19294,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"account">;
@@ -22619,53 +19339,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -22709,53 +19409,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>, z.ZodObject<{
@@ -22838,7 +19518,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -22862,7 +19542,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -22875,7 +19555,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -22888,7 +19568,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -22902,19 +19582,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -22927,19 +19595,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -22952,19 +19608,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -22977,19 +19621,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -23002,19 +19634,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"account_pro">;
@@ -23059,53 +19679,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -23149,53 +19749,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>, z.ZodObject<{
@@ -23278,7 +19858,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -23302,7 +19882,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -23315,7 +19895,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -23328,7 +19908,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -23342,19 +19922,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -23367,19 +19935,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -23392,19 +19948,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -23417,19 +19961,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -23442,19 +19974,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"account_lts">;
@@ -23499,53 +20019,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -23589,53 +20089,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>, z.ZodObject<{
@@ -23718,7 +20198,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -23742,7 +20222,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -23755,7 +20235,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -23768,7 +20248,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -23782,19 +20262,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -23807,19 +20275,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -23832,19 +20288,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -23857,19 +20301,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -23882,19 +20314,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"ib">;
@@ -23939,53 +20359,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -24029,53 +20429,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>, z.ZodObject<{
@@ -24144,7 +20524,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -24168,7 +20548,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -24181,7 +20561,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -24194,7 +20574,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -24208,19 +20588,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -24233,19 +20601,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -24258,19 +20614,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -24283,19 +20627,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -24308,19 +20640,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"asset">;
@@ -24359,53 +20679,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -24443,53 +20743,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>, z.ZodObject<{
@@ -24558,7 +20838,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -24582,7 +20862,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -24595,7 +20875,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -24608,7 +20888,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -24622,19 +20902,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -24647,19 +20915,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -24672,19 +20928,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -24697,19 +20941,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -24722,19 +20954,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"employee_pp">;
@@ -24773,53 +20993,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -24857,53 +21057,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>, z.ZodObject<{
@@ -24972,7 +21152,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 id: z.ZodString;
                 amount: z.ZodNumber;
                 objectTransactionId: z.ZodString;
-                organizationalUnit: z.ZodObject<{
+                organizationalUnit: z.ZodUnion<[z.ZodObject<{
                     code: z.ZodString;
                     id: z.ZodString;
                     active: z.ZodBoolean;
@@ -24996,7 +21176,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                }>;
+                }>, z.ZodNull]>;
             }, "strip", z.ZodTypeAny, {
                 id: string;
                 amount: number;
@@ -25009,7 +21189,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }, {
                 id: string;
                 amount: number;
@@ -25022,7 +21202,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }>, "many">;
             customerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
@@ -25036,19 +21216,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             supplierDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -25061,19 +21229,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             projectDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -25086,19 +21242,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             productDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -25111,19 +21255,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             costBearerDim: z.ZodUnion<[z.ZodObject<{
                 id: z.ZodString;
                 name: z.ZodString;
@@ -25136,19 +21268,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 code: string;
                 id: string;
                 name: string;
-            }>, z.ZodObject<{
-                id: z.ZodNull;
-                name: z.ZodNull;
-                code: z.ZodNull;
-            }, "strip", z.ZodTypeAny, {
-                code: null;
-                id: null;
-                name: null;
-            }, {
-                code: null;
-                id: null;
-                name: null;
-            }>]>;
+            }>, z.ZodNull]>;
             per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
             conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
             refType: z.ZodLiteral<"common">;
@@ -25187,53 +21307,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }, {
@@ -25271,53 +21371,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         }>]>, "many">;
@@ -25368,53 +21448,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -25458,53 +21518,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -25548,53 +21588,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -25638,53 +21658,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -25722,53 +21722,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -25806,53 +21786,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -25890,53 +21850,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -25974,53 +21914,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -26089,53 +22009,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -26204,53 +22104,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -26319,53 +22199,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -26434,53 +22294,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -26549,53 +22389,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -26664,53 +22484,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -26794,53 +22594,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -26884,53 +22664,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -26974,53 +22734,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -27064,53 +22804,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -27148,53 +22868,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -27232,53 +22932,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -27316,53 +22996,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -27400,53 +23060,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -27515,53 +23155,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -27630,53 +23250,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -27745,53 +23345,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -27860,53 +23440,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -27975,53 +23535,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -28090,53 +23630,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -28338,7 +23858,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
     assets: z.ZodArray<z.ZodObject<{
         id: z.ZodString;
         description: z.ZodString;
-        organizationalUnitId: z.ZodObject<{
+        organizationalUnitId: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -28362,7 +23882,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
         scenarioId: z.ZodString;
         taskId: z.ZodString;
         assetNumber: z.ZodString;
@@ -28768,7 +24288,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         scenarioId: string;
         taskId: string;
         assetNumber: string;
@@ -28888,7 +24408,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         scenarioId: string;
         taskId: string;
         assetNumber: string;
@@ -29005,7 +24525,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
             id: z.ZodString;
             amount: z.ZodNumber;
             employeeId: z.ZodString;
-            organizationalUnit: z.ZodObject<{
+            organizationalUnit: z.ZodUnion<[z.ZodObject<{
                 code: z.ZodString;
                 id: z.ZodString;
                 active: z.ZodBoolean;
@@ -29029,7 +24549,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            }>;
+            }>, z.ZodNull]>;
         }, "strip", z.ZodTypeAny, {
             id: string;
             amount: number;
@@ -29041,7 +24561,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            };
+            } | null;
             employeeId: string;
         }, {
             id: string;
@@ -29054,7 +24574,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            };
+            } | null;
             employeeId: string;
         }>, "many">;
         employeeCode: z.ZodString;
@@ -29458,7 +24978,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            };
+            } | null;
             employeeId: string;
         }[];
         employeeCode: string;
@@ -29582,7 +25102,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            };
+            } | null;
             employeeId: string;
         }[];
         employeeCode: string;
@@ -30136,10 +25656,11 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
         createdAt: Date;
         periodFrom: string;
         periodTo: string;
+        owner: string;
+        rootTaskId: string;
         basedOnPlanId: string | null;
         legalEntityId: string;
         actualsFrom: string;
-        rootTaskId: string;
         comparisonPlans: {
             planId: string;
             taskId: string;
@@ -30151,7 +25672,6 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
         periodLength: number;
         companyId: string;
         thousands: boolean;
-        owner: string;
     };
     allScenarios: {
         id: string;
@@ -30200,53 +25720,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -30290,53 +25790,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -30380,53 +25860,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -30470,53 +25930,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -30554,53 +25994,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -30638,53 +26058,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -30722,53 +26122,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -30806,53 +26186,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -30921,53 +26281,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -31036,53 +26376,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -31151,53 +26471,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -31266,53 +26566,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -31381,53 +26661,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -31496,53 +26756,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -31671,7 +26911,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         scenarioId: string;
         taskId: string;
         assetNumber: string;
@@ -31795,7 +27035,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            };
+            } | null;
             employeeId: string;
         }[];
         employeeCode: string;
@@ -31972,10 +27212,11 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
         createdAt: Date;
         periodFrom: string;
         periodTo: string;
+        owner: string;
+        rootTaskId: string;
         basedOnPlanId: string | null;
         legalEntityId: string;
         actualsFrom: string;
-        rootTaskId: string;
         comparisonPlans: {
             planId: string;
             taskId: string;
@@ -31987,7 +27228,6 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
         periodLength: number;
         companyId: string;
         thousands: boolean;
-        owner: string;
     };
     allScenarios: {
         id: string;
@@ -32036,53 +27276,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -32126,53 +27346,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -32216,53 +27416,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -32306,53 +27486,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -32390,53 +27550,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -32474,53 +27614,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -32558,53 +27678,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
         } | {
@@ -32642,53 +27742,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -32757,53 +27837,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -32872,53 +27932,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -32987,53 +28027,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -33102,53 +28122,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -33217,53 +28217,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -33332,53 +28312,33 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                     createdAt: Date;
                     planId: string;
                     syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-                };
+                } | null;
             }[];
             customerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             supplierDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             projectDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             productDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             costBearerDim: {
                 code: string;
                 id: string;
                 name: string;
-            } | {
-                code: null;
-                id: null;
-                name: null;
-            };
+            } | null;
             per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
             conversationId: number | null;
             generalObject: {
@@ -33507,7 +28467,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         scenarioId: string;
         taskId: string;
         assetNumber: string;
@@ -33631,7 +28591,7 @@ export declare const getPlanComparisonDataResponseSchema: z.ZodArray<z.ZodObject
                 createdAt: Date;
                 planId: string;
                 syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-            };
+            } | null;
             employeeId: string;
         }[];
         employeeCode: string;

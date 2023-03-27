@@ -121,7 +121,7 @@ export declare const distributionEmployeeSchema: z.ZodObject<{
     id: z.ZodString;
     amount: z.ZodNumber;
     employeeId: z.ZodString;
-    organizationalUnit: z.ZodObject<{
+    organizationalUnit: z.ZodUnion<[z.ZodObject<{
         code: z.ZodString;
         id: z.ZodString;
         active: z.ZodBoolean;
@@ -145,7 +145,7 @@ export declare const distributionEmployeeSchema: z.ZodObject<{
         createdAt: Date;
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-    }>;
+    }>, z.ZodNull]>;
 }, "strip", z.ZodTypeAny, {
     id: string;
     amount: number;
@@ -157,7 +157,7 @@ export declare const distributionEmployeeSchema: z.ZodObject<{
         createdAt: Date;
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-    };
+    } | null;
     employeeId: string;
 }, {
     id: string;
@@ -170,7 +170,7 @@ export declare const distributionEmployeeSchema: z.ZodObject<{
         createdAt: Date;
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-    };
+    } | null;
     employeeId: string;
 }>;
 export declare type DistributionEmployee = z.infer<typeof distributionEmployeeSchema>;
@@ -381,7 +381,7 @@ export declare const employeePerPersonSchema: z.ZodObject<{
         id: z.ZodString;
         amount: z.ZodNumber;
         employeeId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -405,7 +405,7 @@ export declare const employeePerPersonSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -417,7 +417,7 @@ export declare const employeePerPersonSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         employeeId: string;
     }, {
         id: string;
@@ -430,7 +430,7 @@ export declare const employeePerPersonSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         employeeId: string;
     }>, "many">;
     serviceLevelAllocationKeyId: z.ZodObject<{
@@ -829,7 +829,7 @@ export declare const employeePerPersonSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         employeeId: string;
     }[];
     employeeCode: string;
@@ -965,7 +965,7 @@ export declare const employeePerPersonSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         employeeId: string;
     }[];
     employeeCode: string;
@@ -1096,7 +1096,7 @@ export declare const getEmployeePerPersonResponseSchema: z.ZodArray<z.ZodObject<
         id: z.ZodString;
         amount: z.ZodNumber;
         employeeId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -1120,7 +1120,7 @@ export declare const getEmployeePerPersonResponseSchema: z.ZodArray<z.ZodObject<
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -1132,7 +1132,7 @@ export declare const getEmployeePerPersonResponseSchema: z.ZodArray<z.ZodObject<
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         employeeId: string;
     }, {
         id: string;
@@ -1145,7 +1145,7 @@ export declare const getEmployeePerPersonResponseSchema: z.ZodArray<z.ZodObject<
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         employeeId: string;
     }>, "many">;
     employeeCode: z.ZodString;
@@ -1549,7 +1549,7 @@ export declare const getEmployeePerPersonResponseSchema: z.ZodArray<z.ZodObject<
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         employeeId: string;
     }[];
     employeeCode: string;
@@ -1673,7 +1673,7 @@ export declare const getEmployeePerPersonResponseSchema: z.ZodArray<z.ZodObject<
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
         employeeId: string;
     }[];
     employeeCode: string;

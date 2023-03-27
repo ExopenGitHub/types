@@ -49,3 +49,8 @@ export const PER_VALUE = [
     "week",
     "day",
 ];
+export const TASK_STATUS = [
+    "in_progress",
+    "ready_for_review",
+    "approved",
+];

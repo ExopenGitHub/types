@@ -39,7 +39,7 @@ export const assetSchema = z.object({
   assetNumber: z.string(),
   description: z.string(),
   assetType: assetTypeSchema,
-  organizationalUnitId: organizationalUnitSchema,
+  organizationalUnitId: organizationalUnitSchema.or(z.null()),
   acquisitionValue: z.number(),
   residualValue: z.number(),
   acquisitionDate: z.string(),

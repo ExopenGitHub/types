@@ -37,10 +37,11 @@ export declare const planSchema: z.ZodObject<{
     createdAt: Date;
     periodFrom: string;
     periodTo: string;
+    owner: string;
+    rootTaskId: string;
     basedOnPlanId: string | null;
     legalEntityId: string;
     actualsFrom: string;
-    rootTaskId: string;
     comparisonPlans: {
         planId: string;
         taskId: string;
@@ -52,7 +53,6 @@ export declare const planSchema: z.ZodObject<{
     periodLength: number;
     companyId: string;
     thousands: boolean;
-    owner: string;
 }, {
     id: string;
     name: string;
@@ -61,10 +61,11 @@ export declare const planSchema: z.ZodObject<{
     createdAt: Date;
     periodFrom: string;
     periodTo: string;
+    owner: string;
+    rootTaskId: string;
     basedOnPlanId: string | null;
     legalEntityId: string;
     actualsFrom: string;
-    rootTaskId: string;
     comparisonPlans: {
         planId: string;
         taskId: string;
@@ -76,7 +77,6 @@ export declare const planSchema: z.ZodObject<{
     periodLength: number;
     companyId: string;
     thousands: boolean;
-    owner: string;
 }>;
 export declare type Plan = z.infer<typeof planSchema>;
 export declare const getPlansResponseSchema: z.ZodArray<z.ZodObject<{
@@ -117,10 +117,11 @@ export declare const getPlansResponseSchema: z.ZodArray<z.ZodObject<{
     createdAt: Date;
     periodFrom: string;
     periodTo: string;
+    owner: string;
+    rootTaskId: string;
     basedOnPlanId: string | null;
     legalEntityId: string;
     actualsFrom: string;
-    rootTaskId: string;
     comparisonPlans: {
         planId: string;
         taskId: string;
@@ -132,7 +133,6 @@ export declare const getPlansResponseSchema: z.ZodArray<z.ZodObject<{
     periodLength: number;
     companyId: string;
     thousands: boolean;
-    owner: string;
 }, {
     id: string;
     name: string;
@@ -141,10 +141,11 @@ export declare const getPlansResponseSchema: z.ZodArray<z.ZodObject<{
     createdAt: Date;
     periodFrom: string;
     periodTo: string;
+    owner: string;
+    rootTaskId: string;
     basedOnPlanId: string | null;
     legalEntityId: string;
     actualsFrom: string;
-    rootTaskId: string;
     comparisonPlans: {
         planId: string;
         taskId: string;
@@ -156,6 +157,5 @@ export declare const getPlansResponseSchema: z.ZodArray<z.ZodObject<{
     periodLength: number;
     companyId: string;
     thousands: boolean;
-    owner: string;
 }>, "many">;
 export declare type GetPlansResponse = z.infer<typeof getPlansResponseSchema>;

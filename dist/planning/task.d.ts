@@ -1,31 +1,207 @@
-import { OrganizationalUnit } from "./accountingObject.js";
-export declare type Task = {
+import { z } from "zod";
+declare const taskStatusSchema: z.ZodEnum<["in_progress", "ready_for_review", "approved"]>;
+export declare const taskSchema: z.ZodObject<{
+    id: z.ZodString;
+    name: z.ZodString;
+    description: z.ZodString;
+    targetType: z.ZodUnion<[z.ZodString, z.ZodNull]>;
+    targetAmount: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
+    owner: z.ZodString;
+    ownerMd5: z.ZodString;
+    assignedTo: z.ZodUnion<[z.ZodString, z.ZodNull]>;
+    assignedToMd5: z.ZodUnion<[z.ZodString, z.ZodNull]>;
+    versionId: z.ZodString;
+    status: z.ZodEnum<["in_progress", "ready_for_review", "approved"]>;
+    organizationalUnits: z.ZodArray<z.ZodObject<{
+        code: z.ZodString;
+        id: z.ZodString;
+        active: z.ZodBoolean;
+        name: z.ZodString;
+        createdAt: z.ZodDate;
+        planId: z.ZodString;
+        syncStatus: z.ZodNullable<z.ZodEnum<["new-in-plan", "changed-in-plan", "sync-updated", "sync-new", "sync-ok", "sync-only-in-plan"]>>;
+    }, "strip", z.ZodTypeAny, {
+        code: string;
+        id: string;
+        active: boolean;
+        name: string;
+        createdAt: Date;
+        planId: string;
+        syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
+    }, {
+        code: string;
+        id: string;
+        active: boolean;
+        name: string;
+        createdAt: Date;
+        planId: string;
+        syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
+    }>, "many">;
+    active: z.ZodBoolean;
+    versionName: z.ZodString;
+    parentId: z.ZodUnion<[z.ZodString, z.ZodNull]>;
+    parentStatus: z.ZodUnion<[z.ZodEnum<["in_progress", "ready_for_review", "approved"]>, z.ZodNull]>;
+    distributable: z.ZodBoolean;
+    dueDate: z.ZodDate;
+    rootTaskId: z.ZodString;
+}, "strip", z.ZodTypeAny, {
     id: string;
+    active: boolean;
     name: string;
     description: string;
-    targetType: string;
-    targetAmount: number;
+    status: "in_progress" | "ready_for_review" | "approved";
+    parentId: string | null;
+    versionId: string;
+    targetType: string | null;
+    targetAmount: number | null;
     owner: string;
     ownerMd5: string;
     assignedTo: string | null;
     assignedToMd5: string | null;
-    dueDate: string;
-    distributable: boolean;
-    organizationalUnits: OrganizationalUnit[];
-    versionId: string;
+    organizationalUnits: {
+        code: string;
+        id: string;
+        active: boolean;
+        name: string;
+        createdAt: Date;
+        planId: string;
+        syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
+    }[];
     versionName: string;
-    status: TaskStatus;
-    active: boolean;
+    parentStatus: "in_progress" | "ready_for_review" | "approved" | null;
+    distributable: boolean;
+    dueDate: Date;
     rootTaskId: string;
-} & ({
-    parentId: null;
-    parentStatus: null;
-} | {
-    parentId: string;
-    parentStatus: TaskStatus;
-});
-export declare enum TaskStatus {
-    InProgress = "in_progress",
-    ReadyForReview = "ready_for_review",
-    Approved = "approved"
-}
+}, {
+    id: string;
+    active: boolean;
+    name: string;
+    description: string;
+    status: "in_progress" | "ready_for_review" | "approved";
+    parentId: string | null;
+    versionId: string;
+    targetType: string | null;
+    targetAmount: number | null;
+    owner: string;
+    ownerMd5: string;
+    assignedTo: string | null;
+    assignedToMd5: string | null;
+    organizationalUnits: {
+        code: string;
+        id: string;
+        active: boolean;
+        name: string;
+        createdAt: Date;
+        planId: string;
+        syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
+    }[];
+    versionName: string;
+    parentStatus: "in_progress" | "ready_for_review" | "approved" | null;
+    distributable: boolean;
+    dueDate: Date;
+    rootTaskId: string;
+}>;
+export declare type Task = z.infer<typeof taskSchema>;
+export declare type TaskStatus = z.infer<typeof taskStatusSchema>;
+export declare const getTasksResponseSchema: z.ZodArray<z.ZodObject<{
+    id: z.ZodString;
+    name: z.ZodString;
+    description: z.ZodString;
+    targetType: z.ZodUnion<[z.ZodString, z.ZodNull]>;
+    targetAmount: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
+    owner: z.ZodString;
+    ownerMd5: z.ZodString;
+    assignedTo: z.ZodUnion<[z.ZodString, z.ZodNull]>;
+    assignedToMd5: z.ZodUnion<[z.ZodString, z.ZodNull]>;
+    versionId: z.ZodString;
+    status: z.ZodEnum<["in_progress", "ready_for_review", "approved"]>;
+    organizationalUnits: z.ZodArray<z.ZodObject<{
+        code: z.ZodString;
+        id: z.ZodString;
+        active: z.ZodBoolean;
+        name: z.ZodString;
+        createdAt: z.ZodDate;
+        planId: z.ZodString;
+        syncStatus: z.ZodNullable<z.ZodEnum<["new-in-plan", "changed-in-plan", "sync-updated", "sync-new", "sync-ok", "sync-only-in-plan"]>>;
+    }, "strip", z.ZodTypeAny, {
+        code: string;
+        id: string;
+        active: boolean;
+        name: string;
+        createdAt: Date;
+        planId: string;
+        syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
+    }, {
+        code: string;
+        id: string;
+        active: boolean;
+        name: string;
+        createdAt: Date;
+        planId: string;
+        syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
+    }>, "many">;
+    active: z.ZodBoolean;
+    versionName: z.ZodString;
+    parentId: z.ZodUnion<[z.ZodString, z.ZodNull]>;
+    parentStatus: z.ZodUnion<[z.ZodEnum<["in_progress", "ready_for_review", "approved"]>, z.ZodNull]>;
+    distributable: z.ZodBoolean;
+    dueDate: z.ZodDate;
+    rootTaskId: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    id: string;
+    active: boolean;
+    name: string;
+    description: string;
+    status: "in_progress" | "ready_for_review" | "approved";
+    parentId: string | null;
+    versionId: string;
+    targetType: string | null;
+    targetAmount: number | null;
+    owner: string;
+    ownerMd5: string;
+    assignedTo: string | null;
+    assignedToMd5: string | null;
+    organizationalUnits: {
+        code: string;
+        id: string;
+        active: boolean;
+        name: string;
+        createdAt: Date;
+        planId: string;
+        syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
+    }[];
+    versionName: string;
+    parentStatus: "in_progress" | "ready_for_review" | "approved" | null;
+    distributable: boolean;
+    dueDate: Date;
+    rootTaskId: string;
+}, {
+    id: string;
+    active: boolean;
+    name: string;
+    description: string;
+    status: "in_progress" | "ready_for_review" | "approved";
+    parentId: string | null;
+    versionId: string;
+    targetType: string | null;
+    targetAmount: number | null;
+    owner: string;
+    ownerMd5: string;
+    assignedTo: string | null;
+    assignedToMd5: string | null;
+    organizationalUnits: {
+        code: string;
+        id: string;
+        active: boolean;
+        name: string;
+        createdAt: Date;
+        planId: string;
+        syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
+    }[];
+    versionName: string;
+    parentStatus: "in_progress" | "ready_for_review" | "approved" | null;
+    distributable: boolean;
+    dueDate: Date;
+    rootTaskId: string;
+}>, "many">;
+export {};

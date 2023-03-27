@@ -65,7 +65,7 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -89,7 +89,7 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -102,7 +102,7 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -115,7 +115,7 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -129,19 +129,7 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -154,19 +142,7 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -179,19 +155,7 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -204,19 +168,7 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -229,19 +181,7 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
 }, "strip", z.ZodTypeAny, {
@@ -278,53 +218,33 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -361,53 +281,33 @@ export declare const baseObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>;
@@ -452,53 +352,33 @@ export declare const isAccountObjectTransaction: (objectTransaction: ObjectTrans
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 };
@@ -537,53 +417,33 @@ export declare const isGeneralObjectTransaction: (objectTransaction: ObjectTrans
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -696,7 +556,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -720,7 +580,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -733,7 +593,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -746,7 +606,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -760,19 +620,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -785,19 +633,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -810,19 +646,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -835,19 +659,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -860,19 +672,7 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodUnion<z.ZodLiteral<"sale" | "employee" | "activity_lts" | "sale_pro" | "sale_lts" | "employee_pro" | "employee_lts">[] & [z.ZodLiteral<string>, z.ZodLiteral<string>, ...z.ZodLiteral<string>[]]>;
@@ -1178,53 +978,33 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -1305,53 +1085,33 @@ export declare const generalObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -1465,7 +1225,7 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -1489,7 +1249,7 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -1502,7 +1262,7 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -1515,7 +1275,7 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -1529,19 +1289,7 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -1554,19 +1302,7 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -1579,19 +1315,7 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -1604,19 +1328,7 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -1629,19 +1341,7 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodUnion<z.ZodLiteral<"account" | "account_pro" | "account_lts" | "ib">[] & [z.ZodLiteral<string>, z.ZodLiteral<string>, ...z.ZodLiteral<string>[]]>;
@@ -1700,53 +1400,33 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -1790,53 +1470,33 @@ export declare const accountObjectTransactionSchema: z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>;
@@ -1907,7 +1567,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -1931,7 +1591,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -1944,7 +1604,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -1957,7 +1617,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -1971,19 +1631,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -1996,19 +1644,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -2021,19 +1657,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -2046,19 +1670,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -2071,19 +1683,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"asset">;
@@ -2122,53 +1722,33 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -2206,53 +1786,33 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>, z.ZodObject<{
@@ -2321,7 +1881,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -2345,7 +1905,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -2358,7 +1918,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -2371,7 +1931,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -2385,19 +1945,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -2410,19 +1958,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -2435,19 +1971,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -2460,19 +1984,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -2485,19 +1997,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"employee_pp">;
@@ -2536,53 +2036,33 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -2620,53 +2100,33 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>, z.ZodObject<{
@@ -2735,7 +2195,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -2759,7 +2219,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -2772,7 +2232,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -2785,7 +2245,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -2799,19 +2259,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -2824,19 +2272,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -2849,19 +2285,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -2874,19 +2298,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -2899,19 +2311,7 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"common">;
@@ -2950,53 +2350,33 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -3034,53 +2414,33 @@ export declare const baseObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>];
@@ -3164,7 +2524,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -3188,7 +2548,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -3201,7 +2561,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -3214,7 +2574,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -3228,19 +2588,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -3253,19 +2601,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -3278,19 +2614,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -3303,19 +2627,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -3328,19 +2640,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"account">;
@@ -3385,53 +2685,33 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -3475,53 +2755,33 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>, z.ZodObject<{
@@ -3604,7 +2864,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -3628,7 +2888,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -3641,7 +2901,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -3654,7 +2914,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -3668,19 +2928,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -3693,19 +2941,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -3718,19 +2954,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -3743,19 +2967,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -3768,19 +2980,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"account_pro">;
@@ -3825,53 +3025,33 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -3915,53 +3095,33 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>, z.ZodObject<{
@@ -4044,7 +3204,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -4068,7 +3228,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -4081,7 +3241,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -4094,7 +3254,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -4108,19 +3268,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -4133,19 +3281,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -4158,19 +3294,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -4183,19 +3307,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -4208,19 +3320,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"account_lts">;
@@ -4265,53 +3365,33 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -4355,53 +3435,33 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>, z.ZodObject<{
@@ -4484,7 +3544,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -4508,7 +3568,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -4521,7 +3581,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -4534,7 +3594,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -4548,19 +3608,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -4573,19 +3621,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -4598,19 +3634,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -4623,19 +3647,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -4648,19 +3660,7 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"ib">;
@@ -4705,53 +3705,33 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -4795,53 +3775,33 @@ export declare const accountObjectTransactions: readonly [z.ZodObject<{
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>];
@@ -4911,7 +3871,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -4935,7 +3895,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -4948,7 +3908,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -4961,7 +3921,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -4975,19 +3935,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -5000,19 +3948,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -5025,19 +3961,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -5050,19 +3974,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -5075,19 +3987,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
@@ -5393,53 +4293,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -5520,53 +4400,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -5678,7 +4538,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -5702,7 +4562,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -5715,7 +4575,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -5728,7 +4588,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -5742,19 +4602,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -5767,19 +4615,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -5792,19 +4628,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -5817,19 +4641,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -5842,19 +4654,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
@@ -6160,53 +4960,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -6287,53 +5067,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -6445,7 +5205,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -6469,7 +5229,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -6482,7 +5242,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -6495,7 +5255,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -6509,19 +5269,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -6534,19 +5282,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -6559,19 +5295,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -6584,19 +5308,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -6609,19 +5321,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
@@ -6927,53 +5627,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -7054,53 +5734,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -7212,7 +5872,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -7236,7 +5896,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -7249,7 +5909,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -7262,7 +5922,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -7276,19 +5936,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -7301,19 +5949,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -7326,19 +5962,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -7351,19 +5975,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -7376,19 +5988,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
@@ -7694,53 +6294,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -7821,53 +6401,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -7979,7 +6539,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -8003,7 +6563,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -8016,7 +6576,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -8029,7 +6589,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -8043,19 +6603,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -8068,19 +6616,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -8093,19 +6629,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -8118,19 +6642,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -8143,19 +6655,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
@@ -8461,53 +6961,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -8588,53 +7068,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -8746,7 +7206,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -8770,7 +7230,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -8783,7 +7243,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -8796,7 +7256,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -8810,19 +7270,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -8835,19 +7283,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -8860,19 +7296,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -8885,19 +7309,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -8910,19 +7322,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
@@ -9228,53 +7628,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -9355,53 +7735,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -9513,7 +7873,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -9537,7 +7897,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -9550,7 +7910,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -9563,7 +7923,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -9577,19 +7937,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -9602,19 +7950,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -9627,19 +7963,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -9652,19 +7976,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -9677,19 +7989,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     generalObject: z.ZodObject<{
@@ -9995,53 +8295,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -10122,53 +8402,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
     generalObject: {
@@ -10294,7 +8554,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -10318,7 +8578,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -10331,7 +8591,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -10344,7 +8604,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -10358,19 +8618,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -10383,19 +8631,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -10408,19 +8644,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -10433,19 +8657,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -10458,19 +8670,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"account">;
@@ -10515,53 +8715,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -10605,53 +8785,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>, z.ZodObject<{
@@ -10734,7 +8894,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -10758,7 +8918,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -10771,7 +8931,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -10784,7 +8944,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -10798,19 +8958,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -10823,19 +8971,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -10848,19 +8984,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -10873,19 +8997,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -10898,19 +9010,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"account_pro">;
@@ -10955,53 +9055,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -11045,53 +9125,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>, z.ZodObject<{
@@ -11174,7 +9234,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -11198,7 +9258,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -11211,7 +9271,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -11224,7 +9284,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -11238,19 +9298,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -11263,19 +9311,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -11288,19 +9324,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -11313,19 +9337,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -11338,19 +9350,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"account_lts">;
@@ -11395,53 +9395,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -11485,53 +9465,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>, z.ZodObject<{
@@ -11614,7 +9574,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -11638,7 +9598,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -11651,7 +9611,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -11664,7 +9624,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -11678,19 +9638,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -11703,19 +9651,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -11728,19 +9664,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -11753,19 +9677,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -11778,19 +9690,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"ib">;
@@ -11835,53 +9735,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -11925,53 +9805,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>, z.ZodObject<{
@@ -12040,7 +9900,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -12064,7 +9924,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -12077,7 +9937,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -12090,7 +9950,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -12104,19 +9964,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -12129,19 +9977,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -12154,19 +9990,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -12179,19 +10003,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -12204,19 +10016,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"asset">;
@@ -12255,53 +10055,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -12339,53 +10119,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>, z.ZodObject<{
@@ -12454,7 +10214,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -12478,7 +10238,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -12491,7 +10251,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -12504,7 +10264,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -12518,19 +10278,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -12543,19 +10291,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -12568,19 +10304,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -12593,19 +10317,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -12618,19 +10330,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"employee_pp">;
@@ -12669,53 +10369,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -12753,53 +10433,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>, z.ZodObject<{
@@ -12868,7 +10528,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         id: z.ZodString;
         amount: z.ZodNumber;
         objectTransactionId: z.ZodString;
-        organizationalUnit: z.ZodObject<{
+        organizationalUnit: z.ZodUnion<[z.ZodObject<{
             code: z.ZodString;
             id: z.ZodString;
             active: z.ZodBoolean;
@@ -12892,7 +10552,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        }>;
+        }>, z.ZodNull]>;
     }, "strip", z.ZodTypeAny, {
         id: string;
         amount: number;
@@ -12905,7 +10565,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }, {
         id: string;
         amount: number;
@@ -12918,7 +10578,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }>, "many">;
     customerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
@@ -12932,19 +10592,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     supplierDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -12957,19 +10605,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     projectDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -12982,19 +10618,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     productDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -13007,19 +10631,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     costBearerDim: z.ZodUnion<[z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -13032,19 +10644,7 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
         code: string;
         id: string;
         name: string;
-    }>, z.ZodObject<{
-        id: z.ZodNull;
-        name: z.ZodNull;
-        code: z.ZodNull;
-    }, "strip", z.ZodTypeAny, {
-        code: null;
-        id: null;
-        name: null;
-    }, {
-        code: null;
-        id: null;
-        name: null;
-    }>]>;
+    }>, z.ZodNull]>;
     per: z.ZodEnum<["whole_period", "year", "quarter", "month", "week", "day"]>;
     conversationId: z.ZodUnion<[z.ZodNumber, z.ZodNull]>;
     refType: z.ZodLiteral<"common">;
@@ -13083,53 +10683,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }, {
@@ -13167,53 +10747,33 @@ export declare const objectTransactionSchema: z.ZodDiscriminatedUnion<"refType",
             createdAt: Date;
             planId: string;
             syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-        };
+        } | null;
     }[];
     customerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     supplierDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     projectDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     productDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     costBearerDim: {
         code: string;
         id: string;
         name: string;
-    } | {
-        code: null;
-        id: null;
-        name: null;
-    };
+    } | null;
     per: "day" | "month" | "year" | "quarter" | "week" | "whole_period";
     conversationId: number | null;
 }>]>;

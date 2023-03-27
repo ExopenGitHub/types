@@ -3,7 +3,7 @@ export declare const distributionSchema: z.ZodObject<{
     id: z.ZodString;
     amount: z.ZodNumber;
     objectTransactionId: z.ZodString;
-    organizationalUnit: z.ZodObject<{
+    organizationalUnit: z.ZodUnion<[z.ZodObject<{
         code: z.ZodString;
         id: z.ZodString;
         active: z.ZodBoolean;
@@ -27,7 +27,7 @@ export declare const distributionSchema: z.ZodObject<{
         createdAt: Date;
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-    }>;
+    }>, z.ZodNull]>;
 }, "strip", z.ZodTypeAny, {
     id: string;
     amount: number;
@@ -40,7 +40,7 @@ export declare const distributionSchema: z.ZodObject<{
         createdAt: Date;
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-    };
+    } | null;
 }, {
     id: string;
     amount: number;
@@ -53,6 +53,6 @@ export declare const distributionSchema: z.ZodObject<{
         createdAt: Date;
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-    };
+    } | null;
 }>;
 export declare type Distribution = z.infer<typeof distributionSchema>;

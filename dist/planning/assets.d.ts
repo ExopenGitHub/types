@@ -456,7 +456,7 @@ export declare const assetSchema: z.ZodObject<{
             accountName: string;
         };
     }>;
-    organizationalUnitId: z.ZodObject<{
+    organizationalUnitId: z.ZodUnion<[z.ZodObject<{
         code: z.ZodString;
         id: z.ZodString;
         active: z.ZodBoolean;
@@ -480,7 +480,7 @@ export declare const assetSchema: z.ZodObject<{
         createdAt: Date;
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-    }>;
+    }>, z.ZodNull]>;
     acquisitionValue: z.ZodNumber;
     residualValue: z.ZodNumber;
     acquisitionDate: z.ZodString;
@@ -855,7 +855,7 @@ export declare const assetSchema: z.ZodObject<{
         createdAt: Date;
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-    };
+    } | null;
     scenarioId: string;
     taskId: string;
     assetNumber: string;
@@ -999,7 +999,7 @@ export declare const assetSchema: z.ZodObject<{
         createdAt: Date;
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-    };
+    } | null;
     scenarioId: string;
     taskId: string;
     assetNumber: string;
@@ -1137,7 +1137,7 @@ export declare type Asset = z.infer<typeof assetSchema>;
 export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
     id: z.ZodString;
     description: z.ZodString;
-    organizationalUnitId: z.ZodObject<{
+    organizationalUnitId: z.ZodUnion<[z.ZodObject<{
         code: z.ZodString;
         id: z.ZodString;
         active: z.ZodBoolean;
@@ -1161,7 +1161,7 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
         createdAt: Date;
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-    }>;
+    }>, z.ZodNull]>;
     scenarioId: z.ZodString;
     taskId: z.ZodString;
     assetNumber: z.ZodString;
@@ -1567,7 +1567,7 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
         createdAt: Date;
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-    };
+    } | null;
     scenarioId: string;
     taskId: string;
     assetNumber: string;
@@ -1687,7 +1687,7 @@ export declare const getAssetsResponseSchema: z.ZodArray<z.ZodObject<{
         createdAt: Date;
         planId: string;
         syncStatus: "new-in-plan" | "changed-in-plan" | "sync-updated" | "sync-new" | "sync-ok" | "sync-only-in-plan" | null;
-    };
+    } | null;
     scenarioId: string;
     taskId: string;
     assetNumber: string;

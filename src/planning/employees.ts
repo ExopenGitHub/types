@@ -36,7 +36,7 @@ export const distributionEmployeeSchema = z.object({
   id: z.string(),
   amount: z.number(),
   employeeId: z.string(),
-  organizationalUnit: organizationalUnitSchema,
+  organizationalUnit: organizationalUnitSchema.or(z.null()),
 });
 
 export type DistributionEmployee = z.infer<typeof distributionEmployeeSchema>;

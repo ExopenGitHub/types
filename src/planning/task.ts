@@ -1,30 +1,33 @@
-import { OrganizationalUnit } from "./accountingObject.js";
+import { z } from "zod";
+import { organizationalUnitSchema } from "./accountingObject.js";
+import { TASK_STATUS } from "./constants.js";
 
-export type Task = {
-  id: string;
-  name: string;
-  description: string;
-  targetType: string;
-  targetAmount: number;
-  owner: string;
-  ownerMd5: string;
-  assignedTo: string | null;
-  assignedToMd5: string | null;
-  dueDate: string;
-  distributable: boolean;
-  organizationalUnits: OrganizationalUnit[];
-  versionId: string;
-  versionName: string;
-  status: TaskStatus;
-  active: boolean;
-  rootTaskId: string;
-} & (
-  | { parentId: null; parentStatus: null }
-  | { parentId: string; parentStatus: TaskStatus }
-);
+const taskStatusSchema = z.enum(TASK_STATUS);
 
-export enum TaskStatus {
-  InProgress = "in_progress",
-  ReadyForReview = "ready_for_review",
-  Approved = "approved",
-}
+export const taskSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  description: z.string(),
+  targetType: z.string().or(z.null()),
+  targetAmount: z.number().or(z.null()),
+  owner: z.string(),
+  ownerMd5: z.string(),
+  assignedTo: z.string().or(z.null()),
+  assignedToMd5: z.string().or(z.null()),
+  versionId: z.string(),
+  status: taskStatusSchema,
+  organizationalUnits: z.array(organizationalUnitSchema),
+  active: z.boolean(),
+  versionName: z.string(),
+  parentId: z.string().or(z.null()),
+  parentStatus: taskStatusSchema.or(z.null()),
+  distributable: z.boolean(),
+  dueDate: z.date(),
+  rootTaskId: z.string(),
+});
+
+export type Task = z.infer<typeof taskSchema>;
+
+export type TaskStatus = z.infer<typeof taskStatusSchema>;
+
+export const getTasksResponseSchema = z.array(taskSchema);
