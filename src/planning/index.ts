@@ -16,3 +16,4 @@ export * from "./scenario.js";
 export * from "./vat.js";
 export * from "./planComparisonData.js";
 export * from "./conversation.js";
+export * from "./financialAssets.js";
